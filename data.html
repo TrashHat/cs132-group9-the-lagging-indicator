@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Repository | The Lagging Indicator</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="site-title">The Lagging<br />Indicator</div>
+        <span class="sdg-badge">SDG 8 — Decent Work</span>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-label">Pages</div>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="research.html" class="nav-link">Research</a>
+        <a href="data.html" class="nav-link">Data Repository</a>
+        <a href="eda.html" class="nav-link">EDA</a>
+        <a href="team.html" class="nav-link">About Us</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="group-name">WFS-Group9</div>
+        <div class="group-meta">CS 132 · AY25–26 S2</div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main">
+      <div class="topbar">
+        <span class="crumb">PilipiNuts 2026</span>
+        <span class="crumb-sep">›</span>
+        <span class="crumb-active">Data Repository</span>
+      </div>
+
+      <div class="content">
+        <!-- Dataset Overview -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-dot green"></div>
+            <div class="card-title">Dataset Overview</div>
+          </div>
+          <p>
+            The dataset consists of the <strong>daily closing prices</strong> of
+            all six official Philippine Stock Exchange (PSE) sector indices,
+            covering <strong>January 2, 2019 to April 2025</strong>. This date
+            range captures the full COVID-19 crash cycle, including the
+            pre-pandemic baseline, the March 2020 market collapse, and the
+            multi-year recovery period extending to the present.
+          </p>
+          <p>
+            Each sector index is a market-capitalization-weighted composite of
+            all PSE-listed companies classified under that sector. The six
+            indices collectively represent the entire Philippine equity market
+            and are the official measures published by the Philippine Stock
+            Exchange.
+          </p>
+          <div class="row mt-4">
+            <span class="badge green"><span data-stat="totalRows"></span> total rows</span>
+            <span class="badge blue">Daily frequency</span>
+            <span class="badge gold">2019 – 2025 coverage</span>
+            <span class="badge green">Includes 2025 data</span>
+          </div>
+        </div>
+
+        <!-- Sector Indices Table -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-dot blue"></div>
+            <div class="card-title">The Six PSE Sector Indices</div>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Ticker</th>
+                <th>Sector</th>
+                <th>Description</th>
+                <th>~Rows</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="ticker">PSFI</span></td>
+                <td>Banks &amp; Financial Services</td>
+                <td>
+                  Banks, insurance companies, and other financial institutions
+                  listed on the PSE
+                </td>
+                <td><span data-stat="rowsPerSector"></span></td>
+              </tr>
+              <tr>
+                <td><span class="ticker">PSHO</span></td>
+                <td>Holding Firms</td>
+                <td>
+                  Diversified conglomerates with subsidiaries across multiple
+                  industries
+                </td>
+                <td><span data-stat="rowsPerSector"></span></td>
+              </tr>
+              <tr>
+                <td><span class="ticker">PSIN</span></td>
+                <td>Industrial</td>
+                <td>
+                  Manufacturing, energy, utilities, and other industrial
+                  companies
+                </td>
+                <td><span data-stat="rowsPerSector"></span></td>
+              </tr>
+              <tr>
+                <td><span class="ticker">PSPR</span></td>
+                <td>Property</td>
+                <td>
+                  Real estate developers, REITs, and property management
+                  companies
+                </td>
+                <td><span data-stat="rowsPerSector"></span></td>
+              </tr>
+              <tr>
+                <td><span class="ticker">PSSE</span></td>
+                <td>Services</td>
+                <td>
+                  Retail, telecommunications, media, and consumer service
+                  companies
+                </td>
+                <td><span data-stat="rowsPerSector"></span></td>
+              </tr>
+              <tr>
+                <td><span class="ticker">PSMO</span></td>
+                <td>Mining &amp; Oil</td>
+                <td>
+                  Mining companies and oil exploration firms listed on the PSE
+                </td>
+                <td><span data-stat="rowsPerSector"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Data Collection -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-dot gold"></div>
+            <div class="card-title">Data Collection Process</div>
+          </div>
+          <p>
+            Data was collected from <strong>Investing.com</strong>, which
+            provides free historical daily closing price data for all six PSE
+            sector indices via dedicated historical data pages. Each sector
+            index was downloaded as a separate CSV file covering the full date
+            range (January 2019 – April 2025).
+          </p>
+          <p>
+            The six CSV files were then combined into a single long-format
+            dataset with the following columns: <strong>Date</strong>,
+            <strong>Sector</strong>, <strong>Close</strong>,
+            <strong>Open</strong>, <strong>High</strong>, <strong>Low</strong>,
+            and <strong>Change %</strong>. Rows correspond to individual trading
+            day observations per sector. Non-trading days (weekends and
+            Philippine public holidays) are excluded, consistent with how the
+            PSE publishes index data.
+          </p>
+          <p>
+            <strong>Primary source:</strong> Investing.com, Philippines Stock
+            Indices (free CSV download, free registration required).<br />
+            <strong>Secondary source:</strong> PSE Index History
+            (pse.com.ph/index-history/), used for cross-validation of key dates
+            and index values.
+          </p>
+          <div class="mt-4">
+            <a
+              href="https://ph.investing.com/indices/philippines-indices"
+              target="_blank"
+              class="link-btn"
+            >
+              ↗ Investing.com — Philippines Indices
+            </a>
+          </div>
+        </div>
+
+        <!-- Dataset Specs -->
+        <div class="two-col">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-dot blue"></div>
+              <div class="card-title">Dataset Specifications</div>
+            </div>
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td>Format</td>
+                  <td style="color: var(--text-primary); font-weight: 600">
+                    CSV → Long format
+                  </td>
+                </tr>
+                <tr>
+                  <td>Date range</td>
+                  <td style="color: var(--text-primary); font-weight: 600">
+                    Jan 2, 2019 – Apr 2025
+                  </td>
+                </tr>
+                <tr>
+                  <td>Frequency</td>
+                  <td style="color: var(--text-primary); font-weight: 600">
+                    Daily (trading days only)
+                  </td>
+                </tr>
+                <tr>
+                  <td>Sectors</td>
+                  <td style="color: var(--text-primary); font-weight: 600">
+                    6 indices
+                  </td>
+                </tr>
+                <tr>
+                  <td>Total rows</td>
+                  <td style="color: var(--text-primary); font-weight: 600">
+                    <span data-stat="totalRows"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Includes 2025</td>
+                  <td style="color: var(--accent-green); font-weight: 600">
+                    Yes ✓
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-dot green"></div>
+              <div class="card-title">Preprocessing Notes</div>
+            </div>
+            <p>
+              Raw CSVs downloaded from Investing.com use a
+              <strong>comma-separated format</strong> with date strings in
+              MM/DD/YYYY format. Preprocessing steps applied:
+            </p>
+            <ul class="item-list">
+              <li>
+                <span class="item-num">1</span>
+                <div class="item-body">
+                  Standardized date format to YYYY-MM-DD across all six files
+                </div>
+              </li>
+              <li>
+                <span class="item-num">2</span>
+                <div class="item-body">
+                  Added a <code>Sector</code> column to each file before merging
+                </div>
+              </li>
+              <li>
+                <span class="item-num">3</span>
+                <div class="item-body">
+                  Removed commas from numeric values (e.g., "1,234.56" →
+                  1234.56)
+                </div>
+              </li>
+              <li>
+                <span class="item-num">4</span>
+                <div class="item-body">
+                  Verified no duplicate dates within each sector; no missing
+                  trading days found
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Google Sheet -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-dot gold"></div>
+            <div class="card-title">Raw Dataset — Google Sheets</div>
+          </div>
+          <p>
+            The full combined dataset (all six sector indices, daily, 2019–2025)
+            is available on Google Sheets below. Each sector is on a separate
+            sheet tab, with a combined long-format sheet included for analysis.
+          </p>
+          <div class="mt-4">
+            <a
+              href="https://docs.google.com/spreadsheets/d/1ZLr4vbSqaf5z_l_qtharCTmgjeJQmFHfnvexUuWnkcs/edit?usp=sharing"
+              target="_blank"
+              class="link-btn"
+            >
+              ↗ View Dataset on Google Sheets
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- /content -->
+    </div>
+    <!-- /main -->
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
