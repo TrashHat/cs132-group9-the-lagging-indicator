@@ -5,6 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EDA | The Lagging Indicator</title>
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .plot-frame {
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      display: block;
+      background: var(--bg-primary);
+    }
+    .result-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .result-row:last-child { border-bottom: none; }
+    .result-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      min-width: 160px;
+      flex-shrink: 0;
+    }
+    .result-value {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .result-value.green { color: var(--accent-green); }
+    .result-value.red   { color: var(--accent-red); }
+    .result-value.gold  { color: var(--accent-gold); }
+    .finding-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-right: 6px;
+    }
+    .finding-tag.confirmed {
+      background: #26a69a15;
+      color: var(--accent-green);
+      border: 1px solid #26a69a30;
+    }
+    .finding-tag.rejected {
+      background: #ef535015;
+      color: var(--accent-red);
+      border: 1px solid #ef535030;
+    }
+  </style>
 </head>
 <body>
 
@@ -37,18 +92,240 @@
     </div>
 
     <div class="content">
+
+      <!-- Data Cleaning -->
       <div class="card">
-        <div class="placeholder-wrap">
-          <div class="placeholder-icon">📈</div>
-          <div class="placeholder-title">EDA Coming Soon</div>
-          <p class="placeholder-text">
-            Visualizations, hypothesis testing results, and data cleaning notes
-            will be published here after the data repository submission.
+        <div class="card-header">
+          <div class="card-dot gold"></div>
+          <div class="card-title">Data Cleaning &amp; Verification</div>
+        </div>
+        <p>
+          Prior to analysis, the combined dataset was loaded and verified in Python. The following
+          cleaning and preprocessing steps were applied to ensure data integrity.
+        </p>
+        <ul class="item-list">
+          <li>
+            <span class="item-num">1</span>
+            <div class="item-body">
+              <strong>Date parsing</strong>
+              The <code>Date</code> column was parsed from string to datetime format (YYYY-MM-DD)
+              and the dataset was sorted by Sector and Date.
+            </div>
+          </li>
+          <li>
+            <span class="item-num">2</span>
+            <div class="item-body">
+              <strong>Numeric conversion</strong>
+              The <code>Price</code> column was converted to float after removing any embedded comma
+              separators (e.g., "1,234.56" to 1234.56).
+            </div>
+          </li>
+          <li>
+            <span class="item-num">3</span>
+            <div class="item-body">
+              <strong>Null check</strong>
+              No null values were found in the <code>Date</code>, <code>Sector</code>, or
+              <code>Price</code> columns across all 10,728 rows.
+            </div>
+          </li>
+          <li>
+            <span class="item-num">4</span>
+            <div class="item-body">
+              <strong>Duplicate check</strong>
+              No duplicate (Date, Sector) pairs were found. Each sector has exactly 1,788 unique
+              trading day observations.
+            </div>
+          </li>
+          <li>
+            <span class="item-num">5</span>
+            <div class="item-body">
+              <strong>Normalization</strong>
+              Each sector's closing price was normalized to a January 2019 baseline of 100
+              (Normalized = Price / First Price × 100) to allow direct cross-sector comparison
+              independent of absolute index levels.
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- RQ1 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-dot blue"></div>
+          <div class="card-title">RQ1 — Which Sector Crashed Hardest and Recovered Fastest?</div>
+        </div>
+        <p>
+          The chart below shows the normalized index performance of all six PSE sectors from January 2019
+          to April 2025 (top panel), alongside the peak-to-trough drawdown for each sector during the
+          COVID-19 crash window of Q1 to Q2 2020 (bottom panel). Hover over the lines and bars for
+          exact values.
+        </p>
+
+        <iframe
+          src="rq1_plot.html"
+          class="plot-frame"
+          height="720"
+          title="RQ1 — Normalized Index Performance and COVID-19 Drawdown"
+        ></iframe>
+
+        <div class="mt-4">
+          <p>
+            <strong>Mining &amp; Oil (PSMO) experienced the steepest decline</strong>, falling 61.8%
+            from its pre-pandemic peak to its COVID-19 trough in March to April 2020. This result
+            contradicts H1, which predicted that Services and Property would decline most sharply.
+            Instead, Services (PSSE) registered the smallest drawdown among all six sectors at 40.2%,
+            likely because telecommunications and media companies — which constitute a significant
+            portion of the Services index — continued operating throughout the community quarantine
+            period with minimal disruption to revenues.
+          </p>
+          <p>
+            In terms of post-pandemic performance, Mining &amp; Oil demonstrated the strongest
+            recovery by a considerable margin, with its normalized index exceeding 200 by 2024 and
+            reaching approximately 250 by April 2025 — more than 2.5 times its January 2019 baseline.
+            Property (PSPR), by contrast, remained the clear laggard: its normalized index was still
+            below 100 as of April 2025, indicating that the sector had not returned to its pre-pandemic
+            baseline level within the six-year observation window.
           </p>
         </div>
       </div>
-    </div>
 
+      <!-- RQ2 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-dot blue"></div>
+          <div class="card-title">RQ2 — Do the Six Sectors Show Significantly Different Recovery Trajectories?</div>
+        </div>
+        <p>
+          The box plots below show the distribution of normalized index values for each sector during
+          the post-crash recovery window from July 2020 to April 2025. The Kruskal-Wallis test result
+          is annotated directly on the chart.
+        </p>
+
+        <iframe
+          src="rq2_plot.html"
+          class="plot-frame"
+          height="520"
+          title="RQ2 — Distribution of Normalized Index Values During Recovery"
+        ></iframe>
+
+        <div class="mt-4">
+          <p>
+            The box plots reveal stark differences in recovery distributions across sectors. Property
+            records the lowest median normalized value during the recovery period, confirming that it
+            spent the bulk of 2020 to 2025 below its pre-pandemic baseline. Services and Mining &amp; Oil
+            show the widest distributions and highest medians, reflecting sustained upward momentum
+            throughout the recovery window. Holding Firms and Industrial exhibit similar, compressed
+            distributions near the 80 to 90 range, suggesting a partial but incomplete recovery.
+          </p>
+          <p>
+            The Kruskal-Wallis test yields H = 5289.54 with p ≈ 0, providing strong statistical
+            evidence to reject the null hypothesis and confirm H2. The six PSE sector indices do not
+            share the same recovery trajectory distribution, and the differences are not attributable
+            to chance at any conventional significance level.
+          </p>
+        </div>
+      </div>
+
+      <!-- Hypothesis Testing -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-dot green"></div>
+          <div class="card-title">Hypothesis Testing Results</div>
+        </div>
+
+        <!-- H1 -->
+        <div class="mb-4">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+            <span class="item-num" style="margin-top:0;">H1</span>
+            <span style="font-size:13px; color:var(--text-primary); font-weight:600;">
+              Sector-Specific Crash &amp; Recovery
+            </span>
+            <span class="finding-tag rejected">Not Supported</span>
+          </div>
+          <p>
+            H1 predicted that Services and Property would experience the steepest declines due to their
+            dependence on physical consumer activity, while Industrial and Holding Firms would recover
+            fastest. The data does not support this. Mining &amp; Oil crashed hardest at -61.8%, while
+            Services had the smallest drawdown at -40.2%. In terms of post-pandemic performance,
+            Mining &amp; Oil reached the highest normalized level by April 2025, not Industrial or
+            Holding Firms. Property, as predicted, remained a laggard, but for a different reason than
+            hypothesized: it was not the worst in the crash but proved to be the slowest to recover.
+          </p>
+        </div>
+
+        <div style="border-top: 1px solid var(--border); padding-top: 16px;">
+          <!-- H2 -->
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+            <span class="item-num" style="margin-top:0;">H2</span>
+            <span style="font-size:13px; color:var(--text-primary); font-weight:600;">
+              Significant Trajectory Differences
+            </span>
+            <span class="finding-tag confirmed">Confirmed</span>
+          </div>
+          <p>
+            H2 predicted statistically significant differences in post-COVID recovery trajectories
+            across the six PSE sector indices at α = 0.05. The Kruskal-Wallis test confirms this
+            at a level far exceeding the threshold.
+          </p>
+
+          <div class="result-row">
+            <span class="result-label">Test</span>
+            <span class="result-value">Kruskal-Wallis (non-parametric)</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">H-statistic</span>
+            <span class="result-value gold">5289.54</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">p-value</span>
+            <span class="result-value green">≈ 0 (p &lt; 0.001)</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Significance level</span>
+            <span class="result-value">α = 0.05</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Decision</span>
+            <span class="result-value green">Reject null hypothesis</span>
+          </div>
+
+          <p class="mt-4">
+            Post-hoc Dunn's test with Bonferroni correction was conducted to identify which sector
+            pairs drive the significant result. All pairwise comparisons returned p &lt; 0.05 except
+            one: <strong>Holding Firms (PSHO) and Industrial (PSIN)</strong> were the only sector pair
+            with a non-significant difference (p = 1.0 after correction), indicating that these two
+            sectors followed statistically indistinguishable recovery trajectories from 2020 to 2025.
+            All other 14 pairwise comparisons were significant, confirming that each remaining sector
+            pair diverged meaningfully in its recovery path.
+          </p>
+
+          <div class="mt-4">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Sector Pair</th>
+                  <th>Corrected p-value</th>
+                  <th>Significant at α = 0.05</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>PSHO vs PSIN (Holding Firms vs Industrial)</td>
+                  <td><span style="font-family:'Roboto Mono',monospace; color:var(--accent-gold);">1.0000</span></td>
+                  <td><span style="color:var(--accent-red); font-weight:600;">No</span></td>
+                </tr>
+                <tr>
+                  <td>All other 14 pairs</td>
+                  <td><span style="font-family:'Roboto Mono',monospace; color:var(--accent-green);">&lt; 0.0001</span></td>
+                  <td><span style="color:var(--accent-green); font-weight:600;">Yes</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /content -->
   </div><!-- /main -->
 
   <script src="js/main.js"></script>
