@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Research | The Lagging Indicator</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
 
@@ -16,12 +17,36 @@
     </div>
     <nav class="sidebar-nav">
       <div class="nav-label">Pages</div>
-      <a href="index.html"    class="nav-link">Home</a>
-      <a href="research.html" class="nav-link">Research</a>
-      <a href="data.html"     class="nav-link">Data Repository</a>
-      <a href="eda.html"      class="nav-link">EDA</a>
-      <a href="ml.html"       class="nav-link">ML Forecast</a>
-      <a href="team.html"     class="nav-link">About Us</a>
+      <a href="index.html" class="nav-link" title="Home">
+        <i class="fa-solid fa-house nav-icon"></i>
+        <span class="nav-full">Home</span>
+        <span class="nav-abbr">Home</span>
+      </a>
+      <a href="research.html" class="nav-link" title="Research">
+        <i class="fa-solid fa-flask nav-icon"></i>
+        <span class="nav-full">Research</span>
+        <span class="nav-abbr">Research</span>
+      </a>
+      <a href="data.html" class="nav-link" title="Data Repository">
+        <i class="fa-solid fa-database nav-icon"></i>
+        <span class="nav-full">Data Repository</span>
+        <span class="nav-abbr">Data</span>
+      </a>
+      <a href="eda.html" class="nav-link" title="EDA">
+        <i class="fa-solid fa-chart-bar nav-icon"></i>
+        <span class="nav-full">EDA</span>
+        <span class="nav-abbr">EDA</span>
+      </a>
+      <a href="ml.html" class="nav-link" title="ML Forecast">
+        <i class="fa-solid fa-chart-line nav-icon"></i>
+        <span class="nav-full">ML Forecast</span>
+        <span class="nav-abbr">ML</span>
+      </a>
+      <a href="team.html" class="nav-link" title="Contact">
+        <i class="fa-solid fa-address-card nav-icon"></i>
+        <span class="nav-full">Contact</span>
+        <span class="nav-abbr">Contact</span>
+      </a>
     </nav>
     <div class="sidebar-footer">
       <div class="group-name">WFS-Group9</div>
@@ -46,7 +71,8 @@
           <div class="card-title">Background &amp; Motivation</div>
         </div>
         <p>
-          In March 2020, the Philippine Stock Exchange Index (PSEi) collapsed by nearly 40% in a matter of weeks,
+          In March 2020, the Philippine Stock Exchange Index (PSEi)<a href="#ref-1" class="cite">[1]</a>
+          collapsed by <span class="hl-stat">nearly 40%</span> in a matter of weeks,
           marking one of the steepest single-event crashes in its recorded history. The COVID-19 pandemic
           simultaneously disrupted economic activity across all sectors of the economy, as community quarantine
           restrictions caused businesses to shutter, restricted mobility, and eroded investor confidence
@@ -60,7 +86,7 @@
           to pre-pandemic index levels while others remained considerably below their historical highs.
         </p>
         <p>
-          This uneven recovery is directly relevant to <strong>SDG 8 (Decent Work and Economic Growth)</strong>,
+          This uneven recovery is directly relevant to <strong>SDG 8 (Decent Work and Economic Growth)</strong>,<a href="#ref-2" class="cite">[2]</a>
           which calls for sustained, inclusive economic growth and productive employment. The stock market, as a
           forward-looking indicator of economic expectations, reflects how capital allocators assess the long-term
           viability of each sector. Understanding which sectors recovered, and how quickly, provides a
@@ -68,10 +94,11 @@
           vulnerabilities persist.
         </p>
         <p>
-          This project uses the six official PSE sector indices to trace the full arc of the COVID-19 economic
-          shock, from the initial crash through the recovery period up to April 2025. The central question is
-          whether the post-pandemic recovery of the Philippine economy has been genuinely broad-based or
-          concentrated in select sectors, which has direct implications for inclusive growth under SDG 8.
+          This project uses the six official PSE sector indices<a href="#ref-1" class="cite">[1]</a> to trace
+          the full arc of the COVID-19 economic shock, from the initial crash through the recovery period up to
+          April 2025. The central question is whether the post-pandemic recovery of the Philippine economy has
+          been genuinely broad-based or concentrated in select sectors, which has direct implications for
+          inclusive growth under SDG 8.
         </p>
       </div>
 
@@ -115,6 +142,16 @@
               The Services and Property sectors experienced the steepest decline during Q1–Q2 2020 due to
               their high exposure to physical mobility and consumer activity, while the Industrial and
               Holding Firms sectors demonstrated the fastest recovery to pre-pandemic index levels.
+              <div class="hyp-notation">
+                <div class="hyp-row">
+                  <span class="hyp-label">H₀</span>
+                  <span class="hyp-text">There are no sector-specific differences in crash magnitude or post-pandemic recovery speed across the six PSE sector indices.</span>
+                </div>
+                <div class="hyp-row">
+                  <span class="hyp-label">Hₐ</span>
+                  <span class="hyp-text">Services and Property experienced the steepest declines; Industrial and Holding Firms recovered to pre-pandemic index levels fastest.</span>
+                </div>
+              </div>
             </div>
           </li>
           <li>
@@ -123,6 +160,16 @@
               <strong>Significant Trajectory Differences</strong>
               There is a statistically significant difference in post-COVID recovery trajectories across
               the six PSE sector indices from 2020 to 2025 (α = 0.05).
+              <div class="hyp-notation">
+                <div class="hyp-row">
+                  <span class="hyp-label">H₀</span>
+                  <span class="hyp-text">The six PSE sector indices do not differ significantly in their post-pandemic recovery trajectory distributions (2020–2025).</span>
+                </div>
+                <div class="hyp-row">
+                  <span class="hyp-label">Hₐ</span>
+                  <span class="hyp-text">There is a statistically significant difference in post-COVID recovery trajectories across the six PSE sector indices at α = 0.05.</span>
+                </div>
+              </div>
             </div>
           </li>
         </ul>
@@ -153,11 +200,11 @@
         </ul>
       </div>
 
-      <!-- Proposed Solution -->
+      <!-- Methodology -->
       <div class="card">
         <div class="card-header">
           <div class="card-dot gold"></div>
-          <div class="card-title">Proposed Solution</div>
+          <div class="card-title">Methodology</div>
         </div>
         <p>
           This project applies an <strong>Exploratory Data Analysis (EDA)</strong> approach to the daily
@@ -181,6 +228,38 @@
           the 0.05 significance level, post-hoc pairwise comparisons using Dunn's test will identify which
           specific sector pairs exhibit the greatest divergence in recovery trajectories.
         </p>
+      </div>
+
+      <!-- References -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-dot gold"></div>
+          <div class="card-title">References</div>
+        </div>
+        <div class="references">
+          <div class="ref-item" id="ref-1">
+            <span class="ref-num">[1]</span>
+            <span class="ref-text">
+              Philippine Stock Exchange (PSE). (2025). <em>PSE Sector Indices: Historical Data.</em>
+              Retrieved from <a href="https://www.pse.com.ph/index-history/" target="_blank">pse.com.ph/index-history</a>
+            </span>
+          </div>
+          <div class="ref-item" id="ref-2">
+            <span class="ref-num">[2]</span>
+            <span class="ref-text">
+              United Nations. (2015). <em>Sustainable Development Goal 8: Promote sustained, inclusive and
+              sustainable economic growth, full and productive employment and decent work for all.</em>
+              <a href="https://sdgs.un.org/goals/goal8" target="_blank">sdgs.un.org/goals/goal8</a>
+            </span>
+          </div>
+          <div class="ref-item" id="ref-3">
+            <span class="ref-num">[3]</span>
+            <span class="ref-text">
+              Investing.com. (2025). <em>Philippines Stock Exchange Sector Indices — Historical Data.</em>
+              <a href="https://ph.investing.com/indices/philippines-indices" target="_blank">ph.investing.com/indices/philippines-indices</a>
+            </span>
+          </div>
+        </div>
       </div>
 
     </div><!-- /content -->

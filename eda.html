@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EDA | The Lagging Indicator</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <style>
     .plot-frame {
       width: 100%;
@@ -71,12 +72,36 @@
     </div>
     <nav class="sidebar-nav">
       <div class="nav-label">Pages</div>
-      <a href="index.html"    class="nav-link">Home</a>
-      <a href="research.html" class="nav-link">Research</a>
-      <a href="data.html"     class="nav-link">Data Repository</a>
-      <a href="eda.html"      class="nav-link">EDA</a>
-      <a href="ml.html"       class="nav-link">ML Forecast</a>
-      <a href="team.html"     class="nav-link">About Us</a>
+      <a href="index.html" class="nav-link" title="Home">
+        <i class="fa-solid fa-house nav-icon"></i>
+        <span class="nav-full">Home</span>
+        <span class="nav-abbr">Home</span>
+      </a>
+      <a href="research.html" class="nav-link" title="Research">
+        <i class="fa-solid fa-flask nav-icon"></i>
+        <span class="nav-full">Research</span>
+        <span class="nav-abbr">Research</span>
+      </a>
+      <a href="data.html" class="nav-link" title="Data Repository">
+        <i class="fa-solid fa-database nav-icon"></i>
+        <span class="nav-full">Data Repository</span>
+        <span class="nav-abbr">Data</span>
+      </a>
+      <a href="eda.html" class="nav-link" title="EDA">
+        <i class="fa-solid fa-chart-bar nav-icon"></i>
+        <span class="nav-full">EDA</span>
+        <span class="nav-abbr">EDA</span>
+      </a>
+      <a href="ml.html" class="nav-link" title="ML Forecast">
+        <i class="fa-solid fa-chart-line nav-icon"></i>
+        <span class="nav-full">ML Forecast</span>
+        <span class="nav-abbr">ML</span>
+      </a>
+      <a href="team.html" class="nav-link" title="Contact">
+        <i class="fa-solid fa-address-card nav-icon"></i>
+        <span class="nav-full">Contact</span>
+        <span class="nav-abbr">Contact</span>
+      </a>
     </nav>
     <div class="sidebar-footer">
       <div class="group-name">WFS-Group9</div>
@@ -103,78 +128,26 @@
         <p>
           The chart below summarizes the central findings of this project in a single visualization.
           All six PSE sector indices are normalized to January 2019 = 100, allowing direct cross-sector
-          comparison of crash depth and recovery trajectory. Mining &amp; Oil (PSMO) and Property (PSPR)
+          comparison of crash depth and recovery trajectory.
+          <span class="hl-sector green">Mining &amp; Oil (PSMO)</span> and
+          <span class="hl-sector red">Property (PSPR)</span>
           are highlighted as the two most divergent outcomes: the former surged to more than 2.5 times
           its pre-pandemic level by April 2025, while the latter remained below its January 2019 baseline
           throughout the entire observation window.
         </p>
         <img
-          src="nutshell_plot_v3.png"
+          src="assets/nutshell_plot_v3.png"
           alt="Nutshell plot: Not All Sectors Recovered — The PSE's Fractured Post-COVID Recovery (2019–2025)"
           style="width:100%; border-radius:6px; display:block; margin-top:12px;"
         />
         <p class="mt-4" style="font-size:12px; color:var(--text-muted);">
-          Mining &amp; Oil surged approximately 150% above its pre-pandemic baseline while Property
+          <span class="hl-sector green">Mining &amp; Oil (PSMO)</span> surged approximately 150% above
+          its pre-pandemic baseline while <span class="hl-sector red">Property (PSPR)</span>
           has yet to return to its January 2019 level as of April 2025. The Kruskal-Wallis test
           (H = 5289.54, p &lt; 0.001) confirms that these divergent trajectories are statistically
           significant across all six sectors. The Philippine economy's post-pandemic growth was
           neither uniform nor inclusive, directly implicating SDG 8: Decent Work and Economic Growth.
         </p>
-      </div>
-
-      <!-- Data Cleaning -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-dot gold"></div>
-          <div class="card-title">Data Cleaning &amp; Verification</div>
-        </div>
-        <p>
-          Prior to analysis, the combined dataset was loaded and verified in Python. The following
-          cleaning and preprocessing steps were applied to ensure data integrity.
-        </p>
-        <ul class="item-list">
-          <li>
-            <span class="item-num">1</span>
-            <div class="item-body">
-              <strong>Date parsing</strong>
-              The <code>Date</code> column was parsed from string to datetime format (YYYY-MM-DD)
-              and the dataset was sorted by Sector and Date.
-            </div>
-          </li>
-          <li>
-            <span class="item-num">2</span>
-            <div class="item-body">
-              <strong>Numeric conversion</strong>
-              The <code>Price</code> column was converted to float after removing any embedded comma
-              separators (e.g., "1,234.56" to 1234.56).
-            </div>
-          </li>
-          <li>
-            <span class="item-num">3</span>
-            <div class="item-body">
-              <strong>Null check</strong>
-              No null values were found in the <code>Date</code>, <code>Sector</code>, or
-              <code>Price</code> columns across all 10,728 rows.
-            </div>
-          </li>
-          <li>
-            <span class="item-num">4</span>
-            <div class="item-body">
-              <strong>Duplicate check</strong>
-              No duplicate (Date, Sector) pairs were found. Each sector has exactly 1,788 unique
-              trading day observations.
-            </div>
-          </li>
-          <li>
-            <span class="item-num">5</span>
-            <div class="item-body">
-              <strong>Normalization</strong>
-              Each sector's closing price was normalized to a January 2019 baseline of 100
-              (Normalized = Price / First Price × 100) to allow direct cross-sector comparison
-              independent of absolute index levels.
-            </div>
-          </li>
-        </ul>
       </div>
 
       <!-- RQ1 -->
@@ -191,7 +164,7 @@
         </p>
 
         <iframe
-          src="rq1_plot.html"
+          src="results/rq1_plot.html"
           class="plot-frame"
           height="720"
           title="RQ1: Normalized Index Performance and COVID-19 Drawdown"
@@ -199,8 +172,8 @@
 
         <div class="mt-4">
           <p>
-            <strong>Mining &amp; Oil (PSMO) experienced the steepest decline</strong>, falling 61.8%
-            from its pre-pandemic peak to its COVID-19 trough in March to April 2020. This result
+            <strong><span class="hl-sector green">Mining &amp; Oil (PSMO)</span> experienced the steepest decline</strong>,
+            falling 61.8% from its pre-pandemic peak to its COVID-19 trough in March to April 2020. This result
             contradicts H1, which predicted that Services and Property would decline most sharply.
             Instead, Services (PSSE) registered the smallest drawdown among all six sectors at 40.2%,
             likely because telecommunications and media companies, which constitute a significant
@@ -208,12 +181,12 @@
             period with minimal disruption to revenues.
           </p>
           <p>
-            In terms of post-pandemic performance, Mining &amp; Oil demonstrated the strongest
-            recovery by a considerable margin, with its normalized index exceeding 200 by 2024 and
-            reaching approximately 250 by April 2025, which is more than 2.5 times its January 2019 baseline.
-            Property (PSPR), by contrast, remained the clear laggard: its normalized index was still
-            below 100 as of April 2025, indicating that the sector had not returned to its pre-pandemic
-            baseline level within the six-year observation window.
+            In terms of post-pandemic performance, <span class="hl-sector green">Mining &amp; Oil (PSMO)</span>
+            demonstrated the strongest recovery by a considerable margin, with its normalized index exceeding 200
+            by 2024 and reaching approximately 250 by April 2025, which is more than 2.5 times its January 2019
+            baseline. <span class="hl-sector red">Property (PSPR)</span>, by contrast, remained the clear
+            laggard: its normalized index was still below 100 as of April 2025, indicating that the sector had
+            not returned to its pre-pandemic baseline level within the six-year observation window.
           </p>
         </div>
       </div>
@@ -231,7 +204,7 @@
         </p>
 
         <iframe
-          src="rq2_plot.html"
+          src="results/rq2_plot.html"
           class="plot-frame"
           height="520"
           title="RQ2: Distribution of Normalized Index Values During Recovery"
@@ -239,9 +212,10 @@
 
         <div class="mt-4">
           <p>
-            The box plots reveal stark differences in recovery distributions across sectors. Property
-            records the lowest median normalized value during the recovery period, confirming that it
-            spent the bulk of 2020 to 2025 below its pre-pandemic baseline. Services and Mining &amp; Oil
+            The box plots reveal stark differences in recovery distributions across sectors.
+            <span class="hl-sector red">Property (PSPR)</span> records the lowest median normalized value
+            during the recovery period, confirming that it spent the bulk of 2020 to 2025 below its
+            pre-pandemic baseline. Services and <span class="hl-sector green">Mining &amp; Oil (PSMO)</span>
             show the widest distributions and highest medians, reflecting sustained upward momentum
             throughout the recovery window. Holding Firms and Industrial exhibit similar, compressed
             distributions near the 80 to 90 range, suggesting a partial but incomplete recovery.
@@ -274,11 +248,13 @@
           <p>
             H1 predicted that Services and Property would experience the steepest declines due to their
             dependence on physical consumer activity, while Industrial and Holding Firms would recover
-            fastest. The data does not support this. Mining &amp; Oil crashed hardest at -61.8%, while
-            Services had the smallest drawdown at -40.2%. In terms of post-pandemic performance,
-            Mining &amp; Oil reached the highest normalized level by April 2025, not Industrial or
-            Holding Firms. Property, as predicted, remained a laggard, but for a different reason than
-            hypothesized: it was not the worst in the crash but proved to be the slowest to recover.
+            fastest. The data does not support this. <span class="hl-sector green">Mining &amp; Oil (PSMO)</span>
+            crashed hardest at &minus;61.8%, while Services had the smallest drawdown at &minus;40.2%.
+            In terms of post-pandemic performance, <span class="hl-sector green">PSMO</span> reached the
+            highest normalized level by April 2025, not Industrial or Holding Firms.
+            <span class="hl-sector red">Property (PSPR)</span>, as predicted, remained a laggard, but for
+            a different reason than hypothesized: it was not the worst in the crash but proved to be the
+            slowest to recover.
           </p>
         </div>
 

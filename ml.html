@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ML Forecast | The Lagging Indicator</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <style>
     .plot-frame {
       width: 100%;
@@ -39,6 +40,41 @@
     .result-value.green { color: var(--accent-green); }
     .result-value.red   { color: var(--accent-red); }
     .result-value.gold  { color: var(--accent-gold); }
+    .config-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+    @media (max-width: 767px) {
+      .config-grid { grid-template-columns: 1fr; }
+    }
+    .config-block {
+      background: var(--bg-sidebar);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 16px;
+    }
+    .config-block-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 10px;
+    }
+    .config-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+    }
+    .config-row:last-child { border-bottom: none; }
+    .config-key   { color: var(--text-muted); }
+    .config-val   { color: var(--text-primary); font-weight: 600;
+                    font-family: 'Roboto Mono', monospace; font-size: 11px; }
   </style>
 </head>
 <body>
@@ -51,12 +87,36 @@
     </div>
     <nav class="sidebar-nav">
       <div class="nav-label">Pages</div>
-      <a href="index.html"    class="nav-link">Home</a>
-      <a href="research.html" class="nav-link">Research</a>
-      <a href="data.html"     class="nav-link">Data Repository</a>
-      <a href="eda.html"      class="nav-link">EDA</a>
-      <a href="ml.html"       class="nav-link">ML Forecast</a>
-      <a href="team.html"     class="nav-link">About Us</a>
+      <a href="index.html" class="nav-link" title="Home">
+        <i class="fa-solid fa-house nav-icon"></i>
+        <span class="nav-full">Home</span>
+        <span class="nav-abbr">Home</span>
+      </a>
+      <a href="research.html" class="nav-link" title="Research">
+        <i class="fa-solid fa-flask nav-icon"></i>
+        <span class="nav-full">Research</span>
+        <span class="nav-abbr">Research</span>
+      </a>
+      <a href="data.html" class="nav-link" title="Data Repository">
+        <i class="fa-solid fa-database nav-icon"></i>
+        <span class="nav-full">Data Repository</span>
+        <span class="nav-abbr">Data</span>
+      </a>
+      <a href="eda.html" class="nav-link" title="EDA">
+        <i class="fa-solid fa-chart-bar nav-icon"></i>
+        <span class="nav-full">EDA</span>
+        <span class="nav-abbr">EDA</span>
+      </a>
+      <a href="ml.html" class="nav-link" title="ML Forecast">
+        <i class="fa-solid fa-chart-line nav-icon"></i>
+        <span class="nav-full">ML Forecast</span>
+        <span class="nav-abbr">ML</span>
+      </a>
+      <a href="team.html" class="nav-link" title="Contact">
+        <i class="fa-solid fa-address-card nav-icon"></i>
+        <span class="nav-full">Contact</span>
+        <span class="nav-abbr">Contact</span>
+      </a>
     </nav>
     <div class="sidebar-footer">
       <div class="group-name">WFS-Group9</div>
@@ -80,60 +140,84 @@
           <div class="card-dot gold"></div>
           <div class="card-title">Model Selection &amp; Methodology</div>
         </div>
+
         <p>
-          Prophet (Taylor &amp; Letham, 2017), developed by Meta, was selected as the
-          forecasting model for this analysis over simpler regression-based approaches
-          for three principal reasons. First, Prophet is specifically designed for
-          business time series that exhibit non-linear trends and structural breaks.
-          The PSE sector index data contains a clearly identifiable regime change at
-          the onset of the COVID-19 pandemic in March 2020, where index values
-          collapsed sharply before entering a multi-year recovery period. Prophet
-          models the trend as a series of piecewise linear segments with automatically
-          detected changepoints, allowing it to represent this structural break
-          explicitly rather than imposing a single global polynomial curve across the
-          entire observation window.
-        </p>
-        <p>
-          Second, unlike autoregressive models such as ARIMA, Prophet does not require
-          the series to be stationary, which is appropriate for this dataset since each
-          sector's normalized index exhibits a clear directional trend over the recovery
-          period. Third, Prophet produces calibrated forecast uncertainty intervals
-          via a Laplace approximation on trend noise, which is more informative for
-          policymakers and investors than point estimates alone. The uncertainty
-          intervals communicate the range of plausible future trajectories under the
-          model's assumptions, rather than presenting a single projected value as if
-          it were certain.
+          <strong>Prophet</strong> (Taylor &amp; Letham, 2017), developed by Meta, was selected as the
+          forecasting model over simpler regression-based approaches. Three properties of the PSE sector
+          data made it the appropriate choice.
         </p>
 
-        <div class="two-col mt-4">
-          <div>
-            <div style="font-size:11px; font-weight:700; color:var(--text-muted);
-                        text-transform:uppercase; letter-spacing:0.07em;
-                        margin-bottom:10px;">Hyperparameter Tuning</div>
-            <p>
-              The principal hyperparameter tuned was <code>changepoint_prior_scale</code>
-              (CPS), which controls the flexibility of the piecewise trend. A low CPS
-              value produces a smoother, more regularized trend that resists overfitting
-              to short-term volatility. A high CPS value allows the trend to adapt
-              rapidly to recent data at the cost of increased sensitivity to noise. Six
-              candidate values were evaluated via grid search (0.001, 0.01, 0.05, 0.1,
-              0.3, 0.5), with the value minimizing test-set RMSE selected independently
-              for each sector.
-            </p>
+        <ul class="why-list mt-4">
+          <li>
+            <span class="why-num">1</span>
+            <div class="why-body">
+              <strong>Structural break handling</strong>
+              The dataset contains a clearly identifiable regime change in March 2020, where index values
+              collapsed sharply before entering a multi-year recovery. Prophet models trend as piecewise
+              linear segments with automatically detected changepoints, representing this break explicitly
+              rather than imposing a single global curve.
+            </div>
+          </li>
+          <li>
+            <span class="why-num">2</span>
+            <div class="why-body">
+              <strong>No stationarity requirement</strong>
+              Unlike ARIMA, Prophet does not require the series to be stationary, which is appropriate here
+              since each sector's normalized index exhibits a clear directional trend over the recovery period.
+            </div>
+          </li>
+          <li>
+            <span class="why-num">3</span>
+            <div class="why-body">
+              <strong>Calibrated uncertainty intervals</strong>
+              Prophet produces forecast uncertainty intervals via Laplace approximation on trend noise,
+              communicating a range of plausible future trajectories rather than a single point estimate.
+            </div>
+          </li>
+        </ul>
+
+        <div class="config-grid">
+          <div class="config-block">
+            <div class="config-block-label">Hyperparameter Tuning</div>
+            <div class="config-row">
+              <span class="config-key">Parameter</span>
+              <span class="config-val">changepoint_prior_scale</span>
+            </div>
+            <div class="config-row">
+              <span class="config-key">Grid values</span>
+              <span class="config-val">0.001, 0.01, 0.05, 0.1, 0.3, 0.5</span>
+            </div>
+            <div class="config-row">
+              <span class="config-key">Selection criterion</span>
+              <span class="config-val">Min test-set RMSE</span>
+            </div>
+            <div class="config-row">
+              <span class="config-key">Tuned per</span>
+              <span class="config-val">Each sector independently</span>
+            </div>
           </div>
-          <div>
-            <div style="font-size:11px; font-weight:700; color:var(--text-muted);
-                        text-transform:uppercase; letter-spacing:0.07em;
-                        margin-bottom:10px;">Seasonality &amp; Split</div>
-            <p>
-              Weekly seasonality was disabled because PSE trading gaps on weekends are
-              structural absences rather than seasonal patterns. Yearly seasonality was
-              enabled to capture annual cycles related to fiscal reporting periods and
-              macroeconomic budget cycles. The model was trained on January 2019 to
-              December 2023, covering the pre-pandemic baseline, the COVID-19 crash,
-              and the initial recovery. The held-out test set spans January 2024 to
-              April 2025. Forecasts are generated for May 2025 to December 2026.
-            </p>
+          <div class="config-block">
+            <div class="config-block-label">Model Configuration</div>
+            <div class="config-row">
+              <span class="config-key">Yearly seasonality</span>
+              <span class="config-val" style="color:var(--accent-green);">Enabled</span>
+            </div>
+            <div class="config-row">
+              <span class="config-key">Weekly seasonality</span>
+              <span class="config-val" style="color:var(--accent-red);">Disabled</span>
+            </div>
+            <div class="config-row">
+              <span class="config-key">Training period</span>
+              <span class="config-val">Jan 2019 – Dec 2023</span>
+            </div>
+            <div class="config-row">
+              <span class="config-key">Test period</span>
+              <span class="config-val">Jan 2024 – Apr 2025</span>
+            </div>
+            <div class="config-row">
+              <span class="config-key">Forecast window</span>
+              <span class="config-val">May 2025 – Dec 2026</span>
+            </div>
           </div>
         </div>
       </div>
@@ -145,16 +229,13 @@
           <div class="card-title">Sector Recovery Forecast: May 2025 to December 2026</div>
         </div>
         <p>
-          The chart below shows the actual normalized index performance of all six PSE
-          sectors from January 2019 to April 2025 (solid lines), alongside the Prophet
-          model forecast from May 2025 to December 2026 (dashed lines). Shaded regions
-          represent the 80% forecast uncertainty interval for each sector. The
-          pre-pandemic baseline of 100 is shown as a horizontal reference line, and the
-          forecast start date of May 2025 is marked by a vertical dashed line. Hover
-          over any data point for exact values.
+          Solid lines show actual normalized performance (Jan 2019 – Apr 2025). Dashed lines show Prophet
+          forecasts (May 2025 – Dec 2026). Shaded regions are 80% uncertainty intervals. The horizontal
+          reference at 100 marks the pre-pandemic baseline; the vertical dashed line marks the forecast
+          start. Hover over any point for exact values.
         </p>
         <iframe
-          src="ml_forecast_plot.html"
+          src="results/ml_forecast_plot.html"
           class="plot-frame"
           height="520"
           title="Prophet Forecast: PSE Sector Recovery Trajectories 2025–2026"
@@ -167,17 +248,17 @@
           <div class="card-dot blue"></div>
           <div class="card-title">Model Performance: Test Set Evaluation</div>
         </div>
-        <p>
-          The table below presents the test-set performance of each sector's Prophet
-          model evaluated across three metrics: Root Mean Squared Error (RMSE), Mean
-          Absolute Error (MAE), and the coefficient of determination (R²). RMSE and
-          MAE measure the average magnitude of prediction error in normalized index
-          units. R² measures the proportion of variance in the test data explained by
-          the model, where 1.0 indicates a perfect fit and values below 0 indicate that
-          the model performs worse than a naive mean prediction.
-        </p>
 
-        <table class="data-table mt-4">
+        <div class="callout green mb-4">
+          <div class="callout-label">Key Finding</div>
+          <p>
+            Holding Firms (PSHO) is the <strong>only sector with a positive R²</strong> (+0.0936),
+            reflecting its compressed, plateau-like trajectory. Five of six sectors returned negative R²,
+            driven by externally-triggered surges in 2024–2025 that no univariate trend model could anticipate.
+          </p>
+        </div>
+
+        <table class="data-table">
           <thead>
             <tr>
               <th>Ticker</th>
@@ -241,26 +322,11 @@
         </table>
 
         <p class="mt-4">
-          The results reveal significant variation in predictive accuracy across sectors.
-          Holding Firms (PSHO) is the only sector with a positive R² (0.0936), indicating
-          that its compressed, plateau-like trajectory is the most predictable among the
-          six. Banks and Financial (PSFI) and Property (PSPR) record the least negative
-          R² values at -0.2342 and -0.2856 respectively, suggesting that their relatively
-          stable trends over the test period were partially captured by the model.
-        </p>
-        <p>
-          The strongly negative R² values for Industrial (PSIN, -2.9083), Services
-          (PSSE, -2.3220), and Mining and Oil (PSMO, -1.2716) indicate that the model
-          substantially underestimated the actual performance of these sectors during
-          the 2024 to 2025 test period. This outcome is attributable to the PSMO
-          commodity price surge and the PSSE demand recovery, both of which represent
-          externally-driven shocks that are structurally unpredictable from historical
-          trend data alone. A trend-based model trained on 2019 to 2023 data, when
-          PSMO was trading between 80 and 130 on the normalized scale, could not have
-          anticipated the commodity-driven surge to values exceeding 200 in 2024 to
-          2026. This outcome reflects a fundamental constraint of all trend-based
-          forecasting methods when applied to financially volatile, commodity-linked
-          sectors rather than a failure of model specification.
+          The strongly negative R² values for Industrial (&minus;2.9083), Services (&minus;2.3220), and
+          Mining &amp; Oil (&minus;1.2716) reflect the commodity price surge and demand recovery shocks in
+          2024 to 2025 — externally driven movements that a model trained on 2019 to 2023 trend data
+          cannot anticipate. This is a constraint of all univariate trend-based forecasting methods, not
+          a failure of model specification.
         </p>
       </div>
 
@@ -271,55 +337,36 @@
           <div class="card-title">Forecast Findings &amp; SDG 8 Implications</div>
         </div>
 
-        <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
-          <span class="item-num" style="margin-top:0;">F1</span>
-          <span style="font-size:13px; color:var(--text-primary); font-weight:600;">
-            Property is not projected to reach its pre-pandemic baseline by December 2026
-          </span>
-        </div>
-        <p>
-          The forecast for the period from May 2025 to December 2026 yields one
-          principal finding of direct relevance to the project's research questions and
-          to SDG 8. Property (PSPR) is not projected to reach its pre-pandemic baseline
-          of 100 within the forecast window under the model's central estimate. This
-          extends the finding from the EDA phase, which established that PSPR had not
-          recovered as of April 2025, and provides a quantitative projection confirming
-          that recovery is not imminent under current trend conditions.
-        </p>
-        <p>
-          This finding carries direct implications for SDG 8: Decent Work and Economic
-          Growth. The property sector encompasses real estate developers, REITs, and
-          property management companies, which are significant employers in the
-          Philippine construction and services industries. A sustained multi-year deficit
-          below the pre-pandemic baseline indicates that capital allocation toward this
-          sector has remained structurally depressed relative to 2019 levels. For
-          policymakers evaluating whether economic growth is genuinely inclusive, the
-          Property sector's projected non-recovery within the 2025 to 2026 window
-          suggests that employment and investment conditions in construction-related
-          industries may continue to lag behind the broader market recovery.
-        </p>
-
-        <div style="border-top: 1px solid var(--border); padding-top:16px; margin-top:4px;">
-          <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
-            <span class="item-num" style="margin-top:0;">F2</span>
-            <span style="font-size:13px; color:var(--text-primary); font-weight:600;">
-              Sector divergence is projected to persist through 2026
-            </span>
-          </div>
+        <div class="callout red">
+          <div class="callout-label">Finding F1 — Property</div>
           <p>
-            Mining and Oil (PSMO) is projected to maintain elevated levels through 2026,
-            though the model's wide uncertainty interval for this sector reflects the
-            externally-driven, commodity-linked nature of its gains. Services (PSSE)
-            shows a moderate upward trajectory in the forecast, consistent with the
-            continued normalization of consumer activity in the post-pandemic period.
-            Banks and Financial, Holding Firms, and Industrial are projected to remain
-            clustered in the 80 to 120 normalized index range, reflecting the partial
-            but incomplete recoveries observed in the EDA analysis. Collectively, the
-            forecast trajectories indicate that the sectoral divergence identified in
-            the EDA phase is not a transient condition but a persistent structural
-            feature of the Philippine equity market's post-pandemic configuration.
+            <strong>Property (PSPR) is not projected to reach its pre-pandemic baseline by December 2026</strong>
+            under the model's central estimate, extending the EDA finding that PSPR had not recovered as
+            of April 2025.
           </p>
         </div>
+        <p>
+          This carries direct implications for SDG 8. The property sector employs significant portions of
+          the construction and property management workforce in the Philippines. A sustained multi-year
+          deficit below the 2019 baseline signals that capital allocation toward these industries remains
+          structurally depressed, with employment and investment conditions likely to continue lagging the
+          broader market recovery through at least 2026.
+        </p>
+
+        <div class="callout gold mt-6">
+          <div class="callout-label">Finding F2 — Persistent Divergence</div>
+          <p>
+            <strong>Sector divergence is projected to persist through 2026.</strong> Mining &amp; Oil remains
+            elevated; Services trends moderately upward; Banks, Holding Firms, and Industrial cluster in the
+            80–120 range.
+          </p>
+        </div>
+        <p>
+          The forecast trajectories confirm that the sectoral gap identified in the EDA phase is not a
+          transient condition. The Philippine equity market's post-pandemic configuration appears to be a
+          structural feature of the recovery, with no convergence to a uniform sector level projected
+          within the forecast window.
+        </p>
       </div>
 
       <!-- Limitations -->
@@ -328,37 +375,37 @@
           <div class="card-dot gold"></div>
           <div class="card-title">Limitations &amp; Future Extensions</div>
         </div>
-        <p>
-          Several limitations of this analysis warrant explicit acknowledgment. Prophet
-          is a trend-and-seasonality decomposition model and does not incorporate
-          exogenous variables such as interest rates, commodity prices, exchange rates,
-          or geopolitical events. These factors are primary drivers of short-term sector
-          index performance in practice, and their exclusion means the model cannot
-          anticipate event-driven movements in sectors like Mining and Oil and Services.
-          The negative R² values on the test set for the majority of sectors reflect
-          this constraint directly: the 2024 to 2025 period was characterized by
-          externally-driven shocks that no univariate trend model could have captured.
-        </p>
-        <p>
-          Furthermore, the forecast uncertainty intervals widen considerably over the
-          2025 to 2026 horizon, reinforcing that longer-horizon forecasts carry
-          substantially greater uncertainty. Investors and policymakers should interpret
-          the central forecast line as a conditional projection that assumes no major
-          structural shocks occur during the forecast window, rather than as a precise
-          prediction of future index values.
-        </p>
-        <p>
-          A natural extension of this work would be to incorporate macroeconomic
-          covariates as additional regressors within a Prophet or vector autoregression
-          (VAR) framework, which would allow the model to condition its forecasts on
-          observed economic indicators such as the Philippine GDP growth rate, the BSP
-          policy rate, and global commodity price indices. Sector-specific models that
-          explicitly account for commodity price cycles would substantially improve
-          the predictive accuracy for Mining and Oil. Additionally, applying
-          machine learning ensemble methods such as gradient-boosted trees with lagged
-          features could capture the non-linear interactions between sectors that a
-          univariate time series model cannot represent.
-        </p>
+
+        <ul class="why-list">
+          <li>
+            <span class="why-num">L1</span>
+            <div class="why-body">
+              <strong>No exogenous variables</strong>
+              Prophet does not incorporate interest rates, commodity prices, exchange rates, or geopolitical
+              events — the primary drivers of short-term sector performance. The negative R² values on the
+              test set for most sectors directly reflect this constraint.
+            </div>
+          </li>
+          <li>
+            <span class="why-num">L2</span>
+            <div class="why-body">
+              <strong>Widening uncertainty at longer horizons</strong>
+              Forecast uncertainty intervals widen considerably over the 2025 to 2026 window. The central
+              forecast line should be interpreted as a conditional projection assuming no major structural
+              shocks, not as a precise prediction of future index values.
+            </div>
+          </li>
+          <li>
+            <span class="why-num">L3</span>
+            <div class="why-body">
+              <strong>Potential extensions</strong>
+              Incorporating macroeconomic covariates (Philippine GDP growth rate, BSP policy rate, global
+              commodity price indices) as Prophet regressors, or applying gradient-boosted tree ensembles
+              with lagged features, would substantially improve predictive accuracy for commodity-linked
+              sectors such as Mining &amp; Oil.
+            </div>
+          </li>
+        </ul>
       </div>
 
     </div><!-- /content -->
