@@ -3,7 +3,7 @@
    Color system: TradingView × MetaTrader
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap');
 
 :root {
   --bg-primary:   #08090e;
@@ -1066,7 +1066,6 @@ body {
 }
 
 .home-title {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 46px;
   font-weight: 700;
   color: #ffffff;
