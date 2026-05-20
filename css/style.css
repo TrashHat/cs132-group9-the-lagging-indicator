@@ -10,7 +10,7 @@
   --bg-sidebar:   #0c0e15;
   --bg-card:      #10131c;
   --border:       #1c2030;
-  --text-primary: #e2e8f0;
+  --text-primary: #f1f5f9;
   --text-muted:   #8892a4;
   --accent-blue:  #60a5fa;
   --accent-green: #4ade80;
@@ -1095,6 +1095,7 @@ body {
 }
 
 .home-hero-cta:hover { color: var(--text-primary); }
+.home-hero-cta:hover .home-cta-label { color: var(--accent-gold); font-weight: 700; }
 
 .home-cta-top {
   display: flex;
@@ -1185,7 +1186,7 @@ body {
   font-family: 'Roboto Mono', monospace;
   font-size: 18px;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--accent-gold);
   line-height: 1;
 }
 
@@ -1275,6 +1276,18 @@ body {
   color: var(--accent-blue);
   letter-spacing: 0.03em;
 }
+
+.preview-card.red:hover  { border-color: var(--accent-red); }
+.preview-card.green:hover { border-color: var(--accent-green); }
+.preview-card.gold:hover  { border-color: var(--accent-gold); }
+
+.preview-label.red  { color: var(--accent-red); }
+.preview-label.green { color: var(--accent-green); }
+.preview-label.gold { color: var(--accent-gold); }
+
+.preview-card.red  .preview-cta { color: var(--accent-red); }
+.preview-card.green .preview-cta { color: var(--accent-green); }
+.preview-card.gold  .preview-cta { color: var(--accent-gold); }
 
 /* ── Homepage responsive ─────────────────────────────────── */
 
