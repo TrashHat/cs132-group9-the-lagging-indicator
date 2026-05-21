@@ -143,7 +143,7 @@
         </div>
 
         <p>
-          <strong>Prophet</strong> (Taylor &amp; Letham, 2017), developed by Meta, was selected as the
+          <strong>Prophet</strong><a href="#ref-1" class="cite">[1]</a> (Taylor &amp; Letham, 2017), developed by Meta, was selected as the
           forecasting model over simpler regression-based approaches. Three properties of the PSE sector
           data made it the appropriate choice.
         </p>
@@ -325,7 +325,7 @@
         <p class="mt-4">
           The strongly negative R² values for <span class="hl-psin">Industrial</span> (&minus;2.9083), <span class="hl-psse">Services</span> (&minus;2.3220), and
           <span class="hl-psmo">Mining &amp; Oil</span> (&minus;1.2716) reflect the commodity price surge and demand recovery shocks in
-          2024 to 2025 — externally driven movements that a model trained on 2019 to 2023 trend data
+          2024 to 2025, externally driven movements that a model trained on 2019 to 2023 trend data
           cannot anticipate. This is a constraint of all univariate trend-based forecasting methods, not
           a failure of model specification.
         </p>
@@ -339,7 +339,7 @@
         </div>
 
         <div class="callout red">
-          <div class="callout-label">Finding F1 — Property</div>
+          <div class="callout-label">Finding F1: Property</div>
           <p>
             <strong><span class="hl-pspr">Property (PSPR)</span> is not projected to reach its pre-pandemic baseline by December 2026</strong>
             under the model's central estimate, extending the EDA finding that PSPR had not recovered as
@@ -355,7 +355,7 @@
         </p>
 
         <div class="callout gold mt-6">
-          <div class="callout-label">Finding F2 — Persistent Divergence</div>
+          <div class="callout-label">Finding F2: Persistent Divergence</div>
           <p>
             <strong>Sector divergence is projected to persist through 2026.</strong> <span class="hl-psmo">Mining &amp; Oil</span> remains
             elevated; <span class="hl-psse">Services</span> trends moderately upward; <span class="hl-psfi">Banks</span>, <span class="hl-psho">Holding Firms</span>, and <span class="hl-psin">Industrial</span> cluster in the
@@ -367,6 +367,19 @@
           transient condition. The Philippine equity market's post-pandemic configuration appears to be a
           structural feature of the recovery, with no convergence to a uniform sector level projected
           within the forecast window.
+        </p>
+        <p class="mt-4">
+          Among the individual sectors, <span class="hl-psmo">Mining &amp; Oil (PSMO)</span> is projected
+          to sustain the highest normalized level through 2026, though with the widest uncertainty interval,
+          reflecting the commodity-price dependency of its recent gains. <span class="hl-psse">Services (PSSE)</span>
+          shows a moderate upward trajectory, consistent with continued recovery in telecommunications and
+          retail demand. <span class="hl-psfi">Banks (PSFI)</span>, <span class="hl-psho">Holding Firms (PSHO)</span>,
+          and <span class="hl-psin">Industrial (PSIN)</span> cluster tightly in the 80 to 120 range throughout
+          the forecast window, indicating a recovery that has stabilized but not accelerated.
+          <span class="hl-pspr">Property (PSPR)</span> remains the outlier, with its central forecast
+          trajectory staying below the pre-pandemic baseline of 100 through December 2026. It is the sole
+          sector for which the model projects no recovery completion within the combined observation and
+          forecast window.
         </p>
       </div>
 
@@ -383,7 +396,7 @@
             <div class="why-body">
               <strong>No exogenous variables</strong>
               Prophet does not incorporate interest rates, commodity prices, exchange rates, or geopolitical
-              events — the primary drivers of short-term sector performance. The negative R² values on the
+              events, which are the primary drivers of short-term sector performance. The negative R² values on the
               test set for most sectors directly reflect this constraint.
             </div>
           </li>
@@ -407,6 +420,69 @@
             </div>
           </li>
         </ul>
+      </div>
+
+      <!-- Conclusion -->
+      <div class="card card--open">
+        <div class="card-header">
+          <div class="card-dot blue"></div>
+          <div class="card-title">Conclusion</div>
+        </div>
+        <p>
+          This project examined whether the Philippine Stock Exchange's post-COVID recovery was
+          sector-inclusive, analyzing daily closing prices for all six PSE sector indices from
+          January 2019 to April 2025 and generating Prophet forecasts through December 2026.
+        </p>
+        <p>
+          The evidence is unambiguous: the recovery was not inclusive.
+          <span class="hl-psmo">Mining &amp; Oil (PSMO)</span> exceeded 250% of its January 2019
+          baseline by April 2025, driven by the global commodity price cycle, while
+          <span class="hl-pspr">Property (PSPR)</span> had not returned to that same baseline
+          after six years. The Kruskal-Wallis test (H = 5289.54, p &lt; 0.001) confirms that the
+          divergence in recovery trajectories across all six sectors is statistically significant,
+          with all sector pairs except <span class="hl-psho">Holding Firms</span> and
+          <span class="hl-psin">Industrial</span> showing meaningfully distinct paths. The Prophet
+          forecast projects that this divergence persists through December 2026, with
+          <span class="hl-pspr">Property (PSPR)</span> the sole sector projected to remain below
+          its pre-pandemic baseline at the end of the forecast window.
+        </p>
+        <p>
+          These findings are directly relevant to <span class="hl-sdg">SDG 8: Decent Work and Economic Growth</span>.
+          A fractured recovery, where gains are concentrated in commodity-linked equities while the
+          property and construction sector remains structurally depressed, implies that the economic
+          benefits of the post-pandemic period were unevenly distributed across the industries and
+          workers that depend on each sector. The lagging indicator lived up to its name: the stock
+          market reflected the uneven nature of the recovery, but only after the fact.
+        </p>
+        <p>
+          For investors, the findings suggest that sector-level diversification matters: allocating across
+          all six PSE sectors does not guarantee equal exposure to recovery upside, given how concentrated
+          the post-pandemic gains were in Mining and Oil. For policymakers and labor advocates, the
+          persistent underperformance of the Property sector carries a more urgent signal. The construction
+          and real estate workforce has been operating in a structurally depressed capital environment for
+          over six years, and the forecast offers no relief within the current window. Addressing the
+          conditions that continue to suppress property investment, whether through targeted fiscal
+          incentives, infrastructure spending, or housing policy reform, is a concrete step toward the
+          inclusive economic growth that <span class="hl-sdg">SDG 8</span> calls for.
+        </p>
+      </div>
+
+      <!-- References -->
+      <div class="card card--open">
+        <div class="card-header">
+          <div class="card-dot blue"></div>
+          <div class="card-title">References</div>
+        </div>
+        <div class="references">
+          <div class="ref-item" id="ref-1">
+            <span class="ref-num">[1]</span>
+            <span class="ref-text">
+              Taylor, S. J., &amp; Letham, B. (2017).
+              <em>Forecasting at scale.</em> PeerJ Preprints, 5, e3190v2.
+              <a href="https://doi.org/10.7287/peerj.preprints.3190v2" target="_blank">doi.org/10.7287/peerj.preprints.3190v2</a>
+            </span>
+          </div>
+        </div>
       </div>
 
     </div><!-- /content -->
