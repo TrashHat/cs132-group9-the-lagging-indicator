@@ -35,7 +35,7 @@ body {
 /* ── Sidebar ─────────────────────────────────────────────── */
 
 .sidebar {
-  width: 240px;
+  width: 60px;
   background: var(--bg-sidebar);
   border-right: 1px solid var(--border);
   position: fixed;
@@ -44,12 +44,62 @@ body {
   display: flex;
   flex-direction: column;
   z-index: 100;
+  overflow-x: hidden;
   overflow-y: auto;
+  transition: width 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sidebar:hover {
+  width: 240px;
+  box-shadow: 4px 0 24px rgba(0,0,0,0.4);
 }
 
 .sidebar-logo {
-  padding: 24px 20px 20px;
+  padding: 14px 0;
   border-bottom: 1px solid var(--border);
+  text-align: center;
+  transition: padding 0.25s ease;
+}
+
+.sidebar:hover .sidebar-logo {
+  padding: 24px 20px 20px;
+  text-align: left;
+}
+
+.sidebar .site-title,
+.sidebar .sdg-badge,
+.sidebar .nav-label,
+.sidebar .group-name,
+.sidebar .group-meta {
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar .nav-full,
+.sidebar .nav-abbr {
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 0;
+  transition: opacity 0.2s ease, max-width 0.25s ease;
+}
+
+.sidebar:hover .site-title,
+.sidebar:hover .sdg-badge,
+.sidebar:hover .nav-label,
+.sidebar:hover .group-name,
+.sidebar:hover .group-meta {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar:hover .nav-full {
+  opacity: 1;
+  pointer-events: auto;
+  max-width: 180px;
 }
 
 .sidebar-logo .site-title {
@@ -93,13 +143,19 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 9px 20px;
+  padding: 12px 0;
+  justify-content: center;
   color: var(--text-muted);
   text-decoration: none;
   font-size: 13px;
   font-weight: 500;
   border-left: 2px solid transparent;
-  transition: color 0.15s, background 0.15s, border-color 0.15s;
+  transition: color 0.15s, background 0.15s, border-color 0.15s, padding 0.25s ease;
+}
+
+.sidebar:hover .nav-link {
+  padding: 9px 20px;
+  justify-content: flex-start;
 }
 
 .nav-link:hover {
@@ -114,8 +170,15 @@ body {
 }
 
 .sidebar-footer {
-  padding: 16px 20px;
+  padding: 10px 0;
   border-top: 1px solid var(--border);
+  text-align: center;
+  transition: padding 0.25s ease;
+}
+
+.sidebar:hover .sidebar-footer {
+  padding: 16px 20px;
+  text-align: left;
 }
 
 .sidebar-footer .group-name {
@@ -133,7 +196,7 @@ body {
 /* ── Main layout ─────────────────────────────────────────── */
 
 .main {
-  margin-left: 240px;
+  margin-left: 60px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -248,7 +311,7 @@ body {
 }
 
 .card p {
-  font-size: 13px;
+  font-size: 15.5px;
   color: var(--text-muted);
   line-height: 1.75;
   margin-bottom: 12px;
@@ -301,7 +364,7 @@ body {
 }
 
 .hero-card--open p {
-  font-size: 15px;
+  font-size: 15.5px;
   line-height: 1.85;
   max-width: none;
 }
@@ -333,7 +396,7 @@ body {
 }
 
 .hero-subtitle {
-  font-size: 13px;
+  font-size: 15.5px;
   color: var(--text-muted);
   line-height: 1.75;
   max-width: 540px;
@@ -481,7 +544,7 @@ body {
 }
 
 .hero-card p {
-  font-size: 13px;
+  font-size: 15.5px;
   color: var(--text-muted);
   line-height: 1.75;
   margin-bottom: 12px;
@@ -491,7 +554,7 @@ body {
 
 .item-body {
   flex: 1;
-  font-size: 13px;
+  font-size: 15.5px;
   color: var(--text-muted);
 }
 
@@ -500,7 +563,7 @@ body {
   color: var(--text-primary);
   font-weight: 600;
   margin-bottom: 4px;
-  font-size: 13px;
+  font-size: 15.5px;
 }
 
 /* ── Data table ──────────────────────────────────────────── */
@@ -627,7 +690,7 @@ body {
 }
 
 .placeholder-text {
-  font-size: 13px;
+  font-size: 15.5px;
   color: var(--text-muted);
   max-width: 380px;
   margin: 0 auto;
@@ -932,7 +995,7 @@ body {
   gap: 10px;
   padding: 8px 0;
   border-bottom: 1px solid var(--border);
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-muted);
   line-height: 1.6;
 }
@@ -973,7 +1036,7 @@ body {
   display: flex;
   gap: 10px;
   align-items: baseline;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.6;
 }
 
@@ -1031,7 +1094,7 @@ body {
 .callout.red   .callout-label { color: var(--accent-red); }
 
 .callout p {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-muted);
   margin: 0;
   line-height: 1.6;
@@ -1046,7 +1109,7 @@ body {
   gap: 12px;
   padding: 12px 0;
   border-bottom: 1px solid var(--border);
-  font-size: 13px;
+  font-size: 15.5px;
   color: var(--text-muted);
   line-height: 1.65;
 }
@@ -1075,15 +1138,60 @@ body {
   margin-bottom: 3px;
 }
 
+/* ── Research page columns ───────────────────────────────── */
+
+.research-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+
+.research-pair > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.research-pair > div .hyp-notation {
+  margin-top: auto;
+}
+
+.research-item-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.research-item-head strong {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.4;
+  padding-top: 3px;
+}
+
+.research-pair p {
+  font-size: 15.5px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.callout-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 767px) {
+  .research-pair { grid-template-columns: 1fr; gap: 24px; }
+  .callout-pair  { grid-template-columns: 1fr; }
+}
+
 /* ── Responsive ──────────────────────────────────────────── */
 
 @media (max-width: 1024px) {
-  .sidebar { width: 180px; }
-  .main    { margin-left: 180px; }
-
-  .nav-full { display: none; }
-  .nav-abbr { display: inline; }
-
   .stat-grid  { grid-template-columns: repeat(2, 1fr); }
   .hero-title { font-size: 18px; }
   .content    { padding: 24px; }
@@ -1236,6 +1344,12 @@ body {
   position: relative;
   z-index: 1;
   box-shadow: 0 0 40px rgba(37,99,235,0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.home-hero-img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 60px rgba(37,99,235,0.2);
 }
 
 /* ── Homepage stats grid ─────────────────────────────────── */
@@ -1440,3 +1554,4 @@ body {
   .home-stat  { min-width: calc(50% - 1px); padding: 10px 14px; }
   .preview-grid { grid-template-columns: 1fr; }
 }
+

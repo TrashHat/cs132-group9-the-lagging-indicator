@@ -119,16 +119,19 @@
         </div>
       </div>
 
-      <!-- EDA teaser -->
-      <a href="eda.html" class="preview-card green" style="margin-bottom: 18px;">
-        <img src="assets/rq2_plot.png" class="preview-img" alt="PSE Sector Recovery Trajectories" />
-        <div class="preview-body">
-          <div class="preview-label green">RQ2 · EDA</div>
-          <div class="preview-title">Recovery Divergence</div>
-          <div class="preview-finding">Kruskal-Wallis (H = 5289.54, p &lt; 0.001) confirms the six sectors did not recover at the same pace. See which sectors diverged most sharply from 2020 to 2025.</div>
-          <span class="preview-cta">Explore EDA →</span>
+      <!-- Crash Chart -->
+      <div class="card card--open">
+        <div class="card-header">
+          <div class="card-dot red"></div>
+          <div class="card-title">Peak-to-Trough Drawdown by Sector · Q1–Q2 2020</div>
         </div>
-      </a>
+        <div style="position:relative;height:260px;">
+          <canvas id="crashChart"></canvas>
+        </div>
+        <div style="margin-top:16px;">
+          <a href="eda.html" class="link-btn">See how sectors diverged in recovery →</a>
+        </div>
+      </div>
 
       <!-- Research Questions -->
       <div class="card card--open">
@@ -136,24 +139,24 @@
           <div class="card-dot blue"></div>
           <div class="card-title">Research Questions</div>
         </div>
-        <ul class="item-list">
-          <li>
-            <span class="item-num red">RQ1</span>
-            <div class="item-body">
+        <div class="research-pair">
+          <div>
+            <div class="research-item-head">
+              <span class="item-num red">RQ1</span>
               <strong>Crash &amp; Recovery</strong>
-              Which PSE sector experienced the steepest decline during the COVID-19 crash (Q1–Q2 2020),
-              and which sector demonstrated the fastest recovery to pre-pandemic index levels?
             </div>
-          </li>
-          <li>
-            <span class="item-num green">RQ2</span>
-            <div class="item-body">
+            <p>Which PSE sector experienced the steepest decline during the COVID-19 crash (Q1–Q2 2020),
+              and which sector demonstrated the fastest recovery to pre-pandemic index levels?</p>
+          </div>
+          <div>
+            <div class="research-item-head">
+              <span class="item-num green">RQ2</span>
               <strong>Trajectory Differences</strong>
-              Do the six PSE sector indices show statistically significant differences in their
-              post-pandemic recovery trajectories from 2020 to 2025?
             </div>
-          </li>
-        </ul>
+            <p>Do the six PSE sector indices show statistically significant differences in their
+              post-pandemic recovery trajectories from 2020 to 2025?</p>
+          </div>
+        </div>
       </div>
 
       <!-- Hypotheses -->
@@ -162,45 +165,45 @@
           <div class="card-dot green"></div>
           <div class="card-title">Research Hypotheses</div>
         </div>
-        <ul class="item-list">
-          <li>
-            <span class="item-num red">H1</span>
-            <div class="item-body">
+        <div class="research-pair">
+          <div>
+            <div class="research-item-head">
+              <span class="item-num red">H1</span>
               <strong>Sector-Specific Crash &amp; Recovery</strong>
-              The Services and Property sectors experienced the steepest decline during Q1–Q2 2020 due to
+            </div>
+            <p>The Services and Property sectors experienced the steepest decline during Q1–Q2 2020 due to
               their high exposure to physical mobility and consumer activity, while the Industrial and
-              Holding Firms sectors demonstrated the fastest recovery to pre-pandemic index levels.
-              <div class="hyp-notation">
-                <div class="hyp-row">
-                  <span class="hyp-label">H₀</span>
-                  <span class="hyp-text">There are no sector-specific differences in crash magnitude or post-pandemic recovery speed across the six PSE sector indices.</span>
-                </div>
-                <div class="hyp-row">
-                  <span class="hyp-label">Hₐ</span>
-                  <span class="hyp-text">Services and Property experienced the steepest declines; Industrial and Holding Firms recovered to pre-pandemic index levels fastest.</span>
-                </div>
+              Holding Firms sectors demonstrated the fastest recovery to pre-pandemic index levels.</p>
+            <div class="hyp-notation">
+              <div class="hyp-row">
+                <span class="hyp-label">H₀</span>
+                <span class="hyp-text">There are no sector-specific differences in crash magnitude or post-pandemic recovery speed across the six PSE sector indices.</span>
+              </div>
+              <div class="hyp-row">
+                <span class="hyp-label">Hₐ</span>
+                <span class="hyp-text">Services and Property experienced the steepest declines; Industrial and Holding Firms recovered to pre-pandemic index levels fastest.</span>
               </div>
             </div>
-          </li>
-          <li>
-            <span class="item-num green">H2</span>
-            <div class="item-body">
+          </div>
+          <div>
+            <div class="research-item-head">
+              <span class="item-num green">H2</span>
               <strong>Significant Trajectory Differences</strong>
-              There is a statistically significant difference in post-COVID recovery trajectories across
-              the six PSE sector indices from 2020 to 2025 (α = 0.05).
-              <div class="hyp-notation">
-                <div class="hyp-row">
-                  <span class="hyp-label">H₀</span>
-                  <span class="hyp-text">The six PSE sector indices do not differ significantly in their post-pandemic recovery trajectory distributions (2020–2025).</span>
-                </div>
-                <div class="hyp-row">
-                  <span class="hyp-label">Hₐ</span>
-                  <span class="hyp-text">There is a statistically significant difference in post-COVID recovery trajectories across the six PSE sector indices at α = 0.05.</span>
-                </div>
+            </div>
+            <p>There is a statistically significant difference in post-COVID recovery trajectories across
+              the six PSE sector indices from 2020 to 2025 (α = 0.05).</p>
+            <div class="hyp-notation">
+              <div class="hyp-row">
+                <span class="hyp-label">H₀</span>
+                <span class="hyp-text">The six PSE sector indices do not differ significantly in their post-pandemic recovery trajectory distributions (2020–2025).</span>
+              </div>
+              <div class="hyp-row">
+                <span class="hyp-label">Hₐ</span>
+                <span class="hyp-text">There is a statistically significant difference in post-COVID recovery trajectories across the six PSE sector indices at α = 0.05.</span>
               </div>
             </div>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
 
       <!-- Objectives -->
@@ -209,23 +212,23 @@
           <div class="card-dot blue"></div>
           <div class="card-title">Objectives</div>
         </div>
-        <ul class="item-list">
-          <li>
-            <span class="item-num">O1</span>
-            <div class="item-body">
-              To compare the magnitude and speed of sector-level index decline and recovery across the
-              COVID-19 crash period (2019–2025) using daily PSE sector index closing price data.
+        <div class="research-pair">
+          <div>
+            <div class="research-item-head">
+              <span class="item-num">O1</span>
             </div>
-          </li>
-          <li>
-            <span class="item-num">O2</span>
-            <div class="item-body">
-              To determine whether statistically significant differences exist in the post-COVID recovery
+            <p>To compare the magnitude and speed of sector-level index decline and recovery across the
+              COVID-19 crash period (2019–2025) using daily PSE sector index closing price data.</p>
+          </div>
+          <div>
+            <div class="research-item-head">
+              <span class="item-num">O2</span>
+            </div>
+            <p>To determine whether statistically significant differences exist in the post-COVID recovery
               trajectories of the six PSE sector indices using non-parametric hypothesis testing
-              (Kruskal-Wallis test).
-            </div>
-          </li>
-        </ul>
+              (Kruskal-Wallis test).</p>
+          </div>
+        </div>
       </div>
 
       <!-- Methodology -->
@@ -240,27 +243,29 @@
           structured around two sequential phases, each corresponding to one of the project's research
           questions.
         </p>
-        <div class="callout red">
-          <div class="callout-label">Phase 1 · RQ1 — Descriptive &amp; Visual Analysis</div>
-          <p>
-            The first phase involves computing the percentage drawdown from each sector's pre-crash peak
-            to its trough during Q1 to Q2 of 2020, as well as measuring the time elapsed for each sector
-            to return to its pre-pandemic closing level. The results are visualized through a multi-line
-            time series chart and a comparative bar chart of drawdown magnitude and recovery duration
-            across sectors.
-          </p>
-        </div>
-        <div class="callout green">
-          <div class="callout-label">Phase 2 · RQ2 — Statistical Hypothesis Testing</div>
-          <p>
-            The second phase applies the <strong>Kruskal-Wallis test</strong>, a non-parametric alternative
-            to one-way ANOVA, to test whether the distributions of normalized index returns across the six
-            sectors differ significantly during the recovery period from 2020 to 2025. This test is selected
-            because financial return data is typically non-normal in distribution. If the test yields a
-            statistically significant result at the 0.05 significance level, post-hoc pairwise comparisons
-            using Dunn's test will identify which specific sector pairs exhibit the greatest divergence in
-            recovery trajectories.
-          </p>
+        <div class="callout-pair">
+          <div class="callout red">
+            <div class="callout-label">Phase 1 · RQ1 — Descriptive &amp; Visual Analysis</div>
+            <p>
+              The first phase involves computing the percentage drawdown from each sector's pre-crash peak
+              to its trough during Q1 to Q2 of 2020, as well as measuring the time elapsed for each sector
+              to return to its pre-pandemic closing level. The results are visualized through a multi-line
+              time series chart and a comparative bar chart of drawdown magnitude and recovery duration
+              across sectors.
+            </p>
+          </div>
+          <div class="callout green">
+            <div class="callout-label">Phase 2 · RQ2 — Statistical Hypothesis Testing</div>
+            <p>
+              The second phase applies the <strong>Kruskal-Wallis test</strong>, a non-parametric alternative
+              to one-way ANOVA, to test whether the distributions of normalized index returns across the six
+              sectors differ significantly during the recovery period from 2020 to 2025. This test is selected
+              because financial return data is typically non-normal in distribution. If the test yields a
+              statistically significant result at the 0.05 significance level, post-hoc pairwise comparisons
+              using Dunn's test will identify which specific sector pairs exhibit the greatest divergence in
+              recovery trajectories.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -300,5 +305,6 @@
   </div><!-- /main -->
 
   <script src="js/main.js"></script>
+  <script src="js/charts.js"></script>
 </body>
 </html>

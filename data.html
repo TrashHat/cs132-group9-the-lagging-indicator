@@ -62,6 +62,7 @@
         <span class="crumb">PilipiNuts 2026</span>
         <span class="crumb-sep">›</span>
         <span class="crumb-active">Data Repository</span>
+        <span class="sdg-badge" style="margin-left: auto;">SDG 8 · Decent Work</span>
       </div>
 
       <div class="content">
@@ -303,6 +304,52 @@
           </div>
         </div>
 
+        <!-- Sector Summary Stats Table -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-dot blue"></div>
+            <div class="card-title">Sector Summary Statistics · Jan 2019 – Apr 2025</div>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Ticker</th>
+                  <th>Sector</th>
+                  <th>Start (Jan 2019)</th>
+                  <th>End (Apr 2025)</th>
+                  <th>Min</th>
+                  <th>Max</th>
+                  <th>Total Return</th>
+                </tr>
+              </thead>
+              <tbody id="summaryTbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Sample Rows Table -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-dot green"></div>
+            <div class="card-title">Data Preview · Sample Rows</div>
+          </div>
+          <p style="margin-bottom:14px;">Five representative rows per sector from the combined long-format dataset.</p>
+          <div style="overflow-x:auto;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Ticker</th>
+                  <th>Sector</th>
+                  <th>Closing Price</th>
+                </tr>
+              </thead>
+              <tbody id="sampleTbody"></tbody>
+            </table>
+          </div>
+        </div>
+
         <!-- Google Sheet -->
         <div class="card">
           <div class="card-header">
@@ -330,5 +377,6 @@
     <!-- /main -->
 
     <script src="js/main.js"></script>
+    <script src="js/charts.js"></script>
   </body>
 </html>
