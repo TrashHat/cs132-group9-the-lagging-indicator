@@ -1138,6 +1138,57 @@ body {
   margin-bottom: 3px;
 }
 
+/* ── Research page hero grid ─────────────────────────────── */
+
+.research-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  align-items: stretch;
+  padding: 48px 0 0;
+  margin-bottom: 18px;
+}
+
+.research-hero-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.research-hero-text .hero-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  max-width: none;
+  margin-bottom: 28px;
+}
+
+.research-hero-text p {
+  font-size: 15.5px;
+  color: var(--text-muted);
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+
+.research-hero-text p:last-child { margin-bottom: 0; }
+
+.research-hero-text p strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.research-hero-chart {
+  display: flex;
+  flex-direction: column;
+}
+
+.research-hero-chart .chart-wrap {
+  flex: 1;
+  position: relative;
+  min-height: 280px;
+}
+
 /* ── Research page columns ───────────────────────────────── */
 
 .research-pair {
@@ -1182,6 +1233,18 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
+}
+
+@media (max-width: 960px) {
+  .research-hero-grid {
+    grid-template-columns: 1fr;
+    padding: 32px 0 0;
+    gap: 32px;
+  }
+  .research-hero-chart .chart-wrap {
+    flex: none;
+    height: 300px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1241,35 +1304,36 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 56px;
-  align-items: stretch;
+  align-items: start;
   padding: 52px 0 44px;
 }
 
 .home-hero-left {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 36px;
 }
 
 .home-hero-text {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 36px;
 }
 
 .home-title {
   font-size: 46px;
   font-weight: 700;
   color: #ffffff;
-  line-height: 1.15;
+  line-height: 1.25;
   letter-spacing: -0.025em;
   margin: 0;
 }
 
 .home-sub {
-  font-size: 16px;
+  font-size: 19px;
   color: var(--text-muted);
-  line-height: 1.85;
+  line-height: 2.0;
   max-width: 480px;
   margin: 0;
 }
@@ -1278,7 +1342,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 16px 0 0;
+  padding: 20px 0 0;
   border-top: 1px solid var(--border);
   text-decoration: none;
   color: var(--text-muted);
@@ -1315,9 +1379,9 @@ body {
 }
 
 .home-cta-desc {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-muted);
-  line-height: 1.75;
+  line-height: 1.85;
   margin: 0;
 }
 

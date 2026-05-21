@@ -65,39 +65,53 @@
 
     <div class="content">
 
-      <!-- Background -->
-      <div class="hero-card hero-card--open">
-        <h2 class="hero-title">Background &amp; Motivation</h2>
-        <p>
-          In March 2020, the Philippine Stock Exchange Index (PSEi)<a href="#ref-1" class="cite">[1]</a>
-          collapsed by <span class="hl-stat">nearly 40%</span> in a matter of weeks,
-          marking one of the steepest single-event crashes in its recorded history. The COVID-19 pandemic
-          simultaneously disrupted economic activity across all sectors of the economy, as community quarantine
-          restrictions caused businesses to shutter, restricted mobility, and eroded investor confidence
-          significantly.
-        </p>
-        <p>
-          However, not all sectors were affected equally, and the subsequent recovery did not proceed at the same
-          pace across the board. Property and Services industries faced prolonged exposure to lockdown conditions
-          due to their reliance on physical consumer activity, while Financial and Holding Firms companies were
-          partially insulated by their diversified asset bases. By 2022 to 2023, several sectors had recovered
-          to pre-pandemic index levels while others remained considerably below their historical highs.
-        </p>
-        <p>
-          This uneven recovery is directly relevant to <strong>SDG 8 (Decent Work and Economic Growth)</strong>,<a href="#ref-2" class="cite">[2]</a>
-          which calls for sustained, inclusive economic growth and productive employment. The stock market, as a
-          forward-looking indicator of economic expectations, reflects how capital allocators assess the long-term
-          viability of each sector. Understanding which sectors recovered, and how quickly, provides a
-          data-driven basis for evaluating where the Philippine economy has regained footing and where structural
-          vulnerabilities persist.
-        </p>
-        <p>
-          This project uses the six official PSE sector indices<a href="#ref-1" class="cite">[1]</a> to trace
-          the full arc of the COVID-19 economic shock, from the initial crash through the recovery period up to
-          April 2025. The central question is whether the post-pandemic recovery of the Philippine economy has
-          been genuinely broad-based or concentrated in select sectors, which has direct implications for
-          inclusive growth under SDG 8.
-        </p>
+      <!-- Two-col: background text | crash chart -->
+      <div class="research-hero-grid">
+        <div class="research-hero-text">
+          <h2 class="hero-title">Background &amp; Motivation</h2>
+          <p>
+            In March 2020, the Philippine Stock Exchange Index (PSEi)<a href="#ref-1" class="cite">[1]</a>
+            collapsed by <span class="hl-stat">nearly 40%</span> in a matter of weeks,
+            marking one of the steepest single-event crashes in its recorded history. The COVID-19 pandemic
+            simultaneously disrupted economic activity across all sectors of the economy, as community quarantine
+            restrictions caused businesses to shutter, restricted mobility, and eroded investor confidence
+            significantly.
+          </p>
+          <p>
+            However, not all sectors were affected equally, and the subsequent recovery did not proceed at the same
+            pace across the board. Property and Services industries faced prolonged exposure to lockdown conditions
+            due to their reliance on physical consumer activity, while Financial and Holding Firms companies were
+            partially insulated by their diversified asset bases. By 2022 to 2023, several sectors had recovered
+            to pre-pandemic index levels while others remained considerably below their historical highs.
+          </p>
+          <p>
+            This uneven recovery is directly relevant to <strong>SDG 8 (Decent Work and Economic Growth)</strong>,<a href="#ref-2" class="cite">[2]</a>
+            which calls for sustained, inclusive economic growth and productive employment. The stock market, as a
+            forward-looking indicator of economic expectations, reflects how capital allocators assess the long-term
+            viability of each sector. Understanding which sectors recovered, and how quickly, provides a
+            data-driven basis for evaluating where the Philippine economy has regained footing and where structural
+            vulnerabilities persist.
+          </p>
+          <p>
+            This project uses the six official PSE sector indices<a href="#ref-1" class="cite">[1]</a> to trace
+            the full arc of the COVID-19 economic shock, from the initial crash through the recovery period up to
+            April 2025. The central question is whether the post-pandemic recovery of the Philippine economy has
+            been genuinely broad-based or concentrated in select sectors, which has direct implications for
+            inclusive growth under SDG 8.
+          </p>
+        </div>
+        <div class="research-hero-chart">
+          <div class="card-header">
+            <div class="card-dot red"></div>
+            <div class="card-title">Peak-to-Trough Drawdown by Sector · Q1–Q2 2020</div>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="crashChart"></canvas>
+          </div>
+          <div style="margin-top:16px;">
+            <a href="eda.html" class="link-btn">See how sectors diverged in recovery →</a>
+          </div>
+        </div>
       </div>
 
       <!-- Context stats -->
@@ -116,20 +130,6 @@
           <i class="fa-solid fa-calendar-days home-stat-icon"></i>
           <span class="home-stat-num" style="color: var(--accent-gold)">6 yrs</span>
           <span class="home-stat-label">Jan 2019 – Apr 2025</span>
-        </div>
-      </div>
-
-      <!-- Crash Chart -->
-      <div class="card card--open">
-        <div class="card-header">
-          <div class="card-dot red"></div>
-          <div class="card-title">Peak-to-Trough Drawdown by Sector · Q1–Q2 2020</div>
-        </div>
-        <div style="position:relative;height:260px;">
-          <canvas id="crashChart"></canvas>
-        </div>
-        <div style="margin-top:16px;">
-          <a href="eda.html" class="link-btn">See how sectors diverged in recovery →</a>
         </div>
       </div>
 

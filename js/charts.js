@@ -40,7 +40,7 @@
 
     const sorted = [...data.crash_metrics].sort((a, b) => a.drawdown - b.drawdown);
 
-    new Chart(ctx, {
+    const crashChart = new Chart(ctx, {
       type: 'bar',
       data: {
         labels: sorted.map(d => d.name),
@@ -56,6 +56,7 @@
         indexAxis: 'y',
         responsive: true,
         maintainAspectRatio: false,
+        resizeDelay: 100,
         plugins: {
           legend: { display: false },
           tooltip: {
@@ -79,6 +80,8 @@
         },
       },
     });
+
+    window.addEventListener('resize', () => crashChart.resize());
   }
 
   // ── Data page ─────────────────────────────────────────────────────────────
