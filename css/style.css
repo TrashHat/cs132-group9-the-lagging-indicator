@@ -1450,27 +1450,18 @@ a.callout.green:hover .callout-label::after {
   padding: 12px 0;
 }
 
-.home-hero-glow {
-  position: absolute;
-  inset: -40px;
-  background: radial-gradient(ellipse at center, rgba(37,99,235,0.12) 0%, transparent 65%);
-  pointer-events: none;
-  z-index: 0;
-}
-
 .home-hero-img {
   width: 100%;
   border-radius: 8px;
   display: block;
   position: relative;
   z-index: 1;
-  box-shadow: 0 0 40px rgba(37,99,235,0.08);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  border: 1px solid rgba(37,99,235,0.25);
+  transition: transform 0.35s ease;
 }
 
 .home-hero-img:hover {
   transform: scale(1.04);
-  box-shadow: 0 0 60px rgba(37,99,235,0.2);
 }
 
 /* ── Homepage stats grid ─────────────────────────────────── */
