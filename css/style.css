@@ -462,7 +462,6 @@ body {
 .nav-card:hover {
   border-color: var(--accent-blue);
   background: #2962ff08;
-  transform: translateY(-2px);
 }
 
 .nav-card-label {
@@ -639,7 +638,6 @@ body {
   border: 1px solid #f0b90b28;
 }
 
-.badge::before { content: '●'; font-size: 7px; }
 
 /* ── Link button ─────────────────────────────────────────── */
 
@@ -1062,31 +1060,14 @@ body {
 /* ── Callout box ─────────────────────────────────────────── */
 
 .callout {
-  background: #2962ff08;
-  border: 1px solid #2962ff25;
   border-left: 3px solid var(--accent-blue);
-  border-radius: 0 6px 6px 0;
   padding: 12px 16px;
   margin-bottom: 16px;
 }
 
-.callout.green {
-  background: #26a69a08;
-  border-color: #26a69a25;
-  border-left-color: var(--accent-green);
-}
-
-.callout.gold {
-  background: #f0b90b08;
-  border-color: #f0b90b25;
-  border-left-color: var(--accent-gold);
-}
-
-.callout.red {
-  background: #ef535008;
-  border-color: #ef535025;
-  border-left-color: var(--accent-red);
-}
+.callout.green { border-left-color: var(--accent-green); }
+.callout.gold  { border-left-color: var(--accent-gold); }
+.callout.red   { border-left-color: var(--accent-red); }
 
 .callout-label {
   font-size: 10px;
@@ -1117,8 +1098,7 @@ a.callout {
 }
 
 a.callout.red:hover {
-  background: #ef535016;
-  box-shadow: inset 0 0 0 1px #ef535040;
+  border-left-color: var(--accent-red);
 }
 
 a.callout.red .callout-label::after {
@@ -1137,8 +1117,7 @@ a.callout.red:hover .callout-label::after {
 }
 
 a.callout.green:hover {
-  background: #26a69a16;
-  box-shadow: inset 0 0 0 1px #26a69a40;
+  border-left-color: var(--accent-green);
 }
 
 a.callout.green .callout-label::after {
@@ -1517,7 +1496,6 @@ a.callout.green:hover .callout-label::after {
 
 .home-stat:hover {
   border-color: var(--accent-blue);
-  transform: translateY(-2px);
 }
 
 .home-stat-icon {
@@ -1580,7 +1558,6 @@ a.callout.green:hover .callout-label::after {
 
 .preview-card:hover {
   border-color: var(--accent-blue);
-  transform: translateY(-2px);
 }
 
 .preview-card.featured {
@@ -1668,6 +1645,49 @@ a.callout.green:hover .callout-label::after {
 .preview-card.red  .preview-cta { color: var(--accent-red); }
 .preview-card.green .preview-cta { color: var(--accent-green); }
 .preview-card.gold  .preview-cta { color: var(--accent-gold); }
+
+/* ── Metrics strip ───────────────────────────────────────── */
+
+.metrics-strip {
+  display: flex;
+  align-items: center;
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  row-gap: 8px;
+}
+
+.metric-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 0 20px;
+  border-right: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.metric-item:first-child { padding-left: 0; }
+
+.metric-item .metric-val {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+a.metric-item {
+  margin-left: auto;
+  border-right: none;
+  color: var(--accent-blue);
+  font-weight: 600;
+  text-decoration: none;
+  padding-right: 0;
+}
+
+a.metric-item:hover { text-decoration: underline; }
 
 /* ── Homepage responsive ─────────────────────────────────── */
 

@@ -48,10 +48,9 @@
         labels: sorted.map(d => d.name),
         datasets: [{
           data:            sorted.map(d => d.drawdown),
-          backgroundColor: sorted.map(d => COLORS[d.sector] + '28'),
-          borderColor:     sorted.map(d => COLORS[d.sector]),
-          borderWidth: 1,
-          borderRadius: 4,
+          backgroundColor: sorted.map(d => COLORS[d.sector] + 'cc'),
+          borderWidth: 0,
+          borderRadius: 2,
         }],
       },
       options: {
