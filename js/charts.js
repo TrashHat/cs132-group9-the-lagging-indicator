@@ -32,6 +32,8 @@
   // ── Research page ─────────────────────────────────────────────────────────
 
   function initResearch(data) {
+    buildResearchPreview(data.sample_rows);
+
     const ctx = document.getElementById('crashChart');
     if (!ctx) return;
 
@@ -82,6 +84,23 @@
     });
 
     window.addEventListener('resize', () => crashChart.resize());
+  }
+
+  function buildResearchPreview(rows) {
+    const tbody = document.getElementById('researchSampleTbody');
+    if (!tbody) return;
+    // one row per sector (first occurrence of each)
+    const seen = new Set();
+    rows.filter(r => { if (seen.has(r.sector)) return false; seen.add(r.sector); return true; })
+        .forEach(r => {
+          tbody.insertAdjacentHTML('beforeend', `
+            <tr>
+              <td style="font-family:'Roboto Mono',monospace;">${r.date}</td>
+              <td>${dot(COLORS[r.sector])}<span class="ticker">${r.sector}</span></td>
+              <td>${r.name}</td>
+              <td style="font-family:'Roboto Mono',monospace;">${r.price.toLocaleString()}</td>
+            </tr>`);
+        });
   }
 
   // ── Data page ─────────────────────────────────────────────────────────────

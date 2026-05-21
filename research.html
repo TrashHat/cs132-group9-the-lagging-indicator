@@ -121,9 +121,9 @@
           <span class="home-stat-num" style="color: var(--accent-red)">−40%</span>
           <span class="home-stat-label">PSEi crash · Q1 2020</span>
         </div>
-        <div class="home-stat">
+        <div class="home-stat blue">
           <i class="fa-solid fa-layer-group home-stat-icon"></i>
-          <span class="home-stat-num">6</span>
+          <span class="home-stat-num" style="color: var(--accent-blue)">6</span>
           <span class="home-stat-label">PSE sector indices analyzed</span>
         </div>
         <div class="home-stat gold">
@@ -244,7 +244,7 @@
           questions.
         </p>
         <div class="callout-pair">
-          <div class="callout red">
+          <a href="eda.html" class="callout red">
             <div class="callout-label">Phase 1 · RQ1 — Descriptive &amp; Visual Analysis</div>
             <p>
               The first phase involves computing the percentage drawdown from each sector's pre-crash peak
@@ -253,8 +253,8 @@
               time series chart and a comparative bar chart of drawdown magnitude and recovery duration
               across sectors.
             </p>
-          </div>
-          <div class="callout green">
+          </a>
+          <a href="eda.html" class="callout green">
             <div class="callout-label">Phase 2 · RQ2 — Statistical Hypothesis Testing</div>
             <p>
               The second phase applies the <strong>Kruskal-Wallis test</strong>, a non-parametric alternative
@@ -265,7 +265,36 @@
               using Dunn's test will identify which specific sector pairs exhibit the greatest divergence in
               recovery trajectories.
             </p>
-          </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Data Preview -->
+      <div class="card card--open">
+        <div class="card-header">
+          <div class="card-dot green"></div>
+          <div class="card-title">Dataset at a Glance</div>
+        </div>
+        <p style="margin-bottom:14px;">
+          The analysis draws from <strong>daily closing prices</strong> of all six PSE sector indices
+          spanning January 2019 to April 2025 — <strong>10,728 trading-day observations</strong> in a
+          single long-format dataset. A preview of the raw data is shown below.
+        </p>
+        <div class="research-data-preview">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Ticker</th>
+                <th>Sector</th>
+                <th>Closing Price</th>
+              </tr>
+            </thead>
+            <tbody id="researchSampleTbody"></tbody>
+          </table>
+        </div>
+        <div style="margin-top:16px;">
+          <a href="data.html" class="link-btn">View full dataset →</a>
         </div>
       </div>
 
