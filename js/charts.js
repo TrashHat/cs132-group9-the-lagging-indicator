@@ -95,7 +95,7 @@
           tbody.insertAdjacentHTML('beforeend', `
             <tr>
               <td style="font-family:'Roboto Mono',monospace;">${r.date}</td>
-              <td>${dot(COLORS[r.sector])}<span class="ticker">${r.sector}</span></td>
+              <td>${coloredTicker(r.sector, COLORS[r.sector])}</td>
               <td>${r.name}</td>
               <td style="font-family:'Roboto Mono',monospace;">${r.price.toLocaleString()}</td>
             </tr>`);
@@ -109,9 +109,8 @@
     buildSampleTable(data.sample_rows);
   }
 
-  function dot(color) {
-    return `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;`
-         + `background:${color};margin-right:6px;vertical-align:middle;"></span>`;
+  function coloredTicker(code, color) {
+    return `<span class="ticker" style="color:${color}">${code}</span>`;
   }
 
   function buildSummaryTable(summary) {
@@ -124,7 +123,7 @@
       const sign  = ret >= 0 ? '+' : '';
       tbody.insertAdjacentHTML('beforeend', `
         <tr>
-          <td>${dot(COLORS[code])}<span class="ticker">${code}</span></td>
+          <td>${coloredTicker(code, COLORS[code])}</td>
           <td>${s.name}</td>
           <td style="font-family:'Roboto Mono',monospace;">${s.start.toLocaleString()}</td>
           <td style="font-family:'Roboto Mono',monospace;">${s.end.toLocaleString()}</td>
@@ -142,7 +141,7 @@
       tbody.insertAdjacentHTML('beforeend', `
         <tr>
           <td style="font-family:'Roboto Mono',monospace;">${r.date}</td>
-          <td>${dot(COLORS[r.sector])}<span class="ticker">${r.sector}</span></td>
+          <td>${coloredTicker(r.sector, COLORS[r.sector])}</td>
           <td>${r.name}</td>
           <td style="font-family:'Roboto Mono',monospace;">${r.price.toLocaleString()}</td>
         </tr>`);

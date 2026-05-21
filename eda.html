@@ -10,7 +10,6 @@
     .plot-frame {
       width: 100%;
       border: none;
-      border-radius: 6px;
       display: block;
       background: var(--bg-primary);
     }
@@ -23,7 +22,7 @@
     }
     .result-row:last-child { border-bottom: none; }
     .result-label {
-      font-size: 11px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--text-muted);
       text-transform: uppercase;
@@ -33,7 +32,7 @@
     }
     .result-value {
       font-family: 'Roboto Mono', monospace;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--text-primary);
     }
@@ -42,24 +41,15 @@
     .result-value.gold  { color: var(--accent-gold); }
     .finding-tag {
       display: inline-block;
-      font-size: 10px;
+      font-size: 15px;
       font-weight: 700;
       padding: 2px 8px;
-      border-radius: 3px;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       margin-right: 6px;
     }
-    .finding-tag.confirmed {
-      background: #26a69a15;
-      color: var(--accent-green);
-      border: 1px solid #26a69a30;
-    }
-    .finding-tag.rejected {
-      background: #ef535015;
-      color: var(--accent-red);
-      border: 1px solid #ef535030;
-    }
+    .finding-tag.confirmed { color: var(--accent-green); }
+    .finding-tag.rejected  { color: var(--accent-red); }
   </style>
 </head>
 <body>
@@ -139,7 +129,7 @@
         <img
           src="assets/nutshell_plot_v3.png"
           alt="Nutshell plot: Not All Sectors Recovered: The PSE's Fractured Post-COVID Recovery (2019–2025)"
-          style="width:100%; border-radius:6px; display:block; margin-top:12px;"
+          style="width:100%; display:block; margin-top:12px;"
         />
         <p class="mt-4" style="color:var(--text-muted);">
           <span class="hl-psmo">Mining &amp; Oil (PSMO)</span> surged approximately 150% above
@@ -251,10 +241,10 @@
         <div class="mb-4">
           <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
             <span class="item-num" style="margin-top:0;">H1</span>
-            <span style="font-size:13px; color:var(--text-primary); font-weight:600;">
+            <span style="font-size:15px; color:var(--text-primary); font-weight:600;">
               Sector-Specific Crash &amp; Recovery
             </span>
-            <span class="finding-tag rejected">Not Supported</span>
+            <span class="finding-tag rejected">Not Supported by Data</span>
           </div>
           <p>
             H1 predicted that Services and Property would experience the steepest declines due to their
@@ -279,10 +269,10 @@
           <!-- H2 -->
           <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
             <span class="item-num" style="margin-top:0;">H2</span>
-            <span style="font-size:13px; color:var(--text-primary); font-weight:600;">
+            <span style="font-size:15px; color:var(--text-primary); font-weight:600;">
               Significant Trajectory Differences
             </span>
-            <span class="finding-tag confirmed">Confirmed</span>
+            <span class="finding-tag confirmed">Confirmed by Data</span>
           </div>
           <p>
             H2 predicted statistically significant differences in post-COVID recovery trajectories
