@@ -185,6 +185,26 @@ body {
 
 .card:last-child { margin-bottom: 0; }
 
+.card--flex {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  min-height: 0;
+}
+
+.data-table--fill {
+  flex: 1;
+}
+
+.data-table--fill tbody {
+  display: table-row-group;
+  height: 100%;
+}
+
+.data-table--fill tr {
+  height: calc(100% / 5);
+}
+
 .card-header {
   display: flex;
   align-items: center;
@@ -636,6 +656,12 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
+  align-items: stretch;
+  margin-bottom: 18px;
+}
+
+.two-col > .card {
+  margin-bottom: 0;
 }
 
 .row {

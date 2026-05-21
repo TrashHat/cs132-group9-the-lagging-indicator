@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Data Repository | The Lagging Indicator</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
   </head>
   <body>
     <!-- Sidebar -->
@@ -84,7 +87,9 @@
             Exchange.
           </p>
           <div class="row mt-4">
-            <span class="badge green"><span data-stat="totalRows"></span> total rows</span>
+            <span class="badge green"
+              ><span data-stat="totalRows"></span> total rows</span
+            >
             <span class="badge blue">Daily frequency</span>
             <span class="badge gold">2019 – 2025 coverage</span>
             <span class="badge green">Includes 2025 data</span>
@@ -171,11 +176,16 @@
             <div class="card-title">Data Collection Process</div>
           </div>
           <p>
-            Data was collected from <strong>Investing.com</strong><a href="https://ph.investing.com/indices/philippines-indices" target="_blank" class="cite">[1]</a>,
-            which provides free historical daily closing price data for all six PSE
-            sector indices via dedicated historical data pages. Each sector
-            index was downloaded as a separate CSV file covering the full date
-            range (January 2019 – April 2025).
+            Data was collected from <strong>Investing.com</strong
+            ><a
+              href="https://ph.investing.com/indices/philippines-indices"
+              target="_blank"
+              class="cite"
+              >[1]</a
+            >, which provides free historical daily closing price data for all
+            six PSE sector indices via dedicated historical data pages. Each
+            sector index was downloaded as a separate CSV file covering the full
+            date range (January 2019 – April 2025).
           </p>
           <p>
             The six CSV files were then combined into a single long-format
@@ -207,12 +217,16 @@
 
         <!-- Dataset Specs -->
         <div class="two-col">
-          <div class="card">
+          <div class="card card--flex">
             <div class="card-header">
               <div class="card-dot blue"></div>
               <div class="card-title">Dataset Specifications</div>
             </div>
-            <table class="data-table">
+            <table class="data-table data-table--fill">
+              <colgroup>
+                <col style="width: 38%">
+                <col>
+              </colgroup>
               <tbody>
                 <tr>
                   <td>Format</td>
@@ -242,12 +256,6 @@
                   <td>Total rows</td>
                   <td style="color: var(--text-primary); font-weight: 600">
                     <span data-stat="totalRows"></span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Includes 2025</td>
-                  <td style="color: var(--accent-green); font-weight: 600">
-                    Yes ✓
                   </td>
                 </tr>
               </tbody>
