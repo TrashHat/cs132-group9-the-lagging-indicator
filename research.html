@@ -1,339 +1,442 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Research | The Lagging Indicator</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research | The Lagging Indicator</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="site-title">The Lagging<br />Indicator</div>
+        <span class="sdg-badge">SDG 8 · Decent Work</span>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-label">Pages</div>
+        <a href="index.html" class="nav-link" title="Home">
+          <i class="fa-solid fa-house nav-icon"></i>
+          <span class="nav-full">Home</span>
+          <span class="nav-abbr">Home</span>
+        </a>
+        <a href="research.html" class="nav-link" title="Research">
+          <i class="fa-solid fa-flask nav-icon"></i>
+          <span class="nav-full">Research</span>
+          <span class="nav-abbr">Research</span>
+        </a>
+        <a href="data.html" class="nav-link" title="Data Repository">
+          <i class="fa-solid fa-database nav-icon"></i>
+          <span class="nav-full">Data Repository</span>
+          <span class="nav-abbr">Data</span>
+        </a>
+        <a href="eda.html" class="nav-link" title="EDA">
+          <i class="fa-solid fa-chart-bar nav-icon"></i>
+          <span class="nav-full">EDA</span>
+          <span class="nav-abbr">EDA</span>
+        </a>
+        <a href="ml.html" class="nav-link" title="ML Forecast">
+          <i class="fa-solid fa-chart-line nav-icon"></i>
+          <span class="nav-full">ML Forecast</span>
+          <span class="nav-abbr">ML</span>
+        </a>
+        <a href="team.html" class="nav-link" title="Contact">
+          <i class="fa-solid fa-address-card nav-icon"></i>
+          <span class="nav-full">Contact</span>
+          <span class="nav-abbr">Contact</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="group-name">WFS-Group9</div>
+        <div class="group-meta">CS 132 · AY25–26 S2</div>
+      </div>
+    </aside>
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-logo">
-      <div class="site-title">The Lagging<br>Indicator</div>
-      <span class="sdg-badge">SDG 8 · Decent Work</span>
-    </div>
-    <nav class="sidebar-nav">
-      <div class="nav-label">Pages</div>
-      <a href="index.html" class="nav-link" title="Home">
-        <i class="fa-solid fa-house nav-icon"></i>
-        <span class="nav-full">Home</span>
-        <span class="nav-abbr">Home</span>
-      </a>
-      <a href="research.html" class="nav-link" title="Research">
-        <i class="fa-solid fa-flask nav-icon"></i>
-        <span class="nav-full">Research</span>
-        <span class="nav-abbr">Research</span>
-      </a>
-      <a href="data.html" class="nav-link" title="Data Repository">
-        <i class="fa-solid fa-database nav-icon"></i>
-        <span class="nav-full">Data Repository</span>
-        <span class="nav-abbr">Data</span>
-      </a>
-      <a href="eda.html" class="nav-link" title="EDA">
-        <i class="fa-solid fa-chart-bar nav-icon"></i>
-        <span class="nav-full">EDA</span>
-        <span class="nav-abbr">EDA</span>
-      </a>
-      <a href="ml.html" class="nav-link" title="ML Forecast">
-        <i class="fa-solid fa-chart-line nav-icon"></i>
-        <span class="nav-full">ML Forecast</span>
-        <span class="nav-abbr">ML</span>
-      </a>
-      <a href="team.html" class="nav-link" title="Contact">
-        <i class="fa-solid fa-address-card nav-icon"></i>
-        <span class="nav-full">Contact</span>
-        <span class="nav-abbr">Contact</span>
-      </a>
-    </nav>
-    <div class="sidebar-footer">
-      <div class="group-name">WFS-Group9</div>
-      <div class="group-meta">CS 132 · AY25–26 S2</div>
-    </div>
-  </aside>
+    <!-- Main -->
+    <div class="main">
+      <div class="topbar">
+        <span class="crumb">PilipiNuts 2026</span>
+        <span class="crumb-sep">›</span>
+        <span class="crumb-active">Research</span>
+        <span class="sdg-badge" style="margin-left: auto"
+          >SDG 8 · Decent Work</span
+        >
+      </div>
 
-  <!-- Main -->
-  <div class="main">
-    <div class="topbar">
-      <span class="crumb">PilipiNuts 2026</span>
-      <span class="crumb-sep">›</span>
-      <span class="crumb-active">Research</span>
-      <span class="sdg-badge" style="margin-left: auto;">SDG 8 · Decent Work</span>
-    </div>
-
-    <div class="content">
-
-      <!-- Two-col: background text | crash chart -->
-      <div class="research-hero-grid">
-        <div class="research-hero-text">
-          <h2 class="hero-title">Background &amp; Motivation</h2>
-          <p>
-            In March 2020, the Philippine Stock Exchange Index (PSEi)<a href="#ref-1" class="cite">[1]</a>
-            collapsed by <span class="hl-stat">nearly 40%</span> in a matter of weeks,
-            marking one of the steepest single-event crashes in its recorded history. The COVID-19 pandemic
-            simultaneously disrupted economic activity across all sectors of the economy, as community quarantine
-            restrictions caused businesses to shutter, restricted mobility, and eroded investor confidence
-            significantly.
-          </p>
-          <p>
-            However, not all sectors were affected equally, and the subsequent recovery did not proceed at the same
-            pace across the board. Property and Services industries faced prolonged exposure to lockdown conditions
-            due to their reliance on physical consumer activity, while Financial and Holding Firms companies were
-            partially insulated by their diversified asset bases. By 2022 to 2023, several sectors had recovered
-            to pre-pandemic index levels while others remained considerably below their historical highs.
-          </p>
-          <p>
-            This uneven recovery is directly relevant to <strong>SDG 8 (Decent Work and Economic Growth)</strong>,<a href="#ref-2" class="cite">[2]</a>
-            which calls for sustained, inclusive economic growth and productive employment. The stock market, as a
-            forward-looking indicator of economic expectations, reflects how capital allocators assess the long-term
-            viability of each sector. Understanding which sectors recovered, and how quickly, provides a
-            data-driven basis for evaluating where the Philippine economy has regained footing and where structural
-            vulnerabilities persist.
-          </p>
-          <p>
-            This project uses the six official PSE sector indices<a href="#ref-1" class="cite">[1]</a> to trace
-            the full arc of the COVID-19 economic shock, from the initial crash through the recovery period up to
-            April 2025. The central question is whether the post-pandemic recovery of the Philippine economy has
-            been genuinely broad-based or concentrated in select sectors, which has direct implications for
-            inclusive growth under SDG 8.
-          </p>
+      <div class="content">
+        <!-- Two-col: background text | crash chart -->
+        <div class="research-hero-grid">
+          <div class="research-hero-text">
+            <h2 class="hero-title">Background &amp; Motivation</h2>
+            <p>
+              In March 2020, the Philippine Stock Exchange Index (PSEi)<a
+                href="#ref-1"
+                class="cite"
+                >[1]</a
+              >
+              collapsed by <span class="hl-stat">nearly 40%</span> in a matter
+              of weeks, marking one of the steepest single-event crashes in its
+              recorded history. The COVID-19 pandemic simultaneously disrupted
+              economic activity across all sectors of the economy, as community
+              quarantine restrictions caused businesses to shutter, restricted
+              mobility, and eroded investor confidence significantly.
+            </p>
+            <p>
+              However, not all sectors were affected equally, and the subsequent
+              recovery did not proceed at the same pace across the board.
+              Property and Services industries faced prolonged exposure to
+              lockdown conditions due to their reliance on physical consumer
+              activity, while Financial and Holding Firms companies were
+              partially insulated by their diversified asset bases. By 2022 to
+              2023, several sectors had recovered to pre-pandemic index levels
+              while others remained considerably below their historical highs.
+            </p>
+            <p>
+              This uneven recovery is directly relevant to
+              <strong class="hl-sdg">SDG 8 (Decent Work and Economic Growth)</strong>,<a
+                href="#ref-2"
+                class="cite"
+                >[2]</a
+              >
+              which calls for sustained, inclusive economic growth and
+              productive employment. The stock market, as a forward-looking
+              indicator of economic expectations, reflects how capital
+              allocators assess the long-term viability of each sector.
+              Understanding which sectors recovered, and how quickly, provides a
+              data-driven basis for evaluating where the Philippine economy has
+              regained footing and where structural vulnerabilities persist.
+            </p>
+            <p>
+              This project uses the six official PSE sector indices<a
+                href="#ref-1"
+                class="cite"
+                >[1]</a
+              >
+              to trace the full arc of the COVID-19 economic shock, from the
+              initial crash through the recovery period up to April 2025. The
+              central question is whether the post-pandemic recovery of the
+              Philippine economy has been genuinely broad-based or concentrated
+              in select sectors, which has direct implications for inclusive
+              growth under SDG 8.
+            </p>
+          </div>
+          <div class="research-hero-chart">
+            <div class="card-header">
+              <div class="card-dot blue"></div>
+              <div class="card-title">
+                Peak-to-Trough Drawdown by Sector · Q1–Q2 2020
+              </div>
+            </div>
+            <div class="chart-wrap">
+              <canvas id="crashChart"></canvas>
+            </div>
+            <div style="margin-top: 16px">
+              <a href="eda.html" class="link-btn"
+                >See how sectors diverged in recovery →</a
+              >
+            </div>
+          </div>
         </div>
-        <div class="research-hero-chart">
+
+        <!-- Context stats -->
+        <div
+          class="home-stats"
+          style="grid-template-columns: repeat(3, 1fr); margin-bottom: 18px"
+        >
+          <div class="home-stat red">
+            <i class="fa-solid fa-arrow-trend-down home-stat-icon"></i>
+            <span class="home-stat-num" style="color: var(--accent-red)"
+              >−40%</span
+            >
+            <span class="home-stat-label">PSEi crash · Q1 2020</span>
+          </div>
+          <div class="home-stat blue">
+            <i class="fa-solid fa-layer-group home-stat-icon"></i>
+            <span class="home-stat-num" style="color: var(--accent-blue)"
+              >6</span
+            >
+            <span class="home-stat-label">PSE sector indices analyzed</span>
+          </div>
+          <div class="home-stat gold">
+            <i class="fa-solid fa-calendar-days home-stat-icon"></i>
+            <span class="home-stat-num" style="color: var(--accent-gold)"
+              >6 yrs</span
+            >
+            <span class="home-stat-label">Jan 2019 – Apr 2025</span>
+          </div>
+        </div>
+
+        <!-- Research Questions -->
+        <div class="card card--open">
           <div class="card-header">
-            <div class="card-dot red"></div>
-            <div class="card-title">Peak-to-Trough Drawdown by Sector · Q1–Q2 2020</div>
+            <div class="card-dot blue"></div>
+            <div class="card-title">Research Questions</div>
           </div>
-          <div class="chart-wrap">
-            <canvas id="crashChart"></canvas>
-          </div>
-          <div style="margin-top:16px;">
-            <a href="eda.html" class="link-btn">See how sectors diverged in recovery →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Context stats -->
-      <div class="home-stats" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 18px;">
-        <div class="home-stat red">
-          <i class="fa-solid fa-arrow-trend-down home-stat-icon"></i>
-          <span class="home-stat-num" style="color: var(--accent-red)">−40%</span>
-          <span class="home-stat-label">PSEi crash · Q1 2020</span>
-        </div>
-        <div class="home-stat blue">
-          <i class="fa-solid fa-layer-group home-stat-icon"></i>
-          <span class="home-stat-num" style="color: var(--accent-blue)">6</span>
-          <span class="home-stat-label">PSE sector indices analyzed</span>
-        </div>
-        <div class="home-stat gold">
-          <i class="fa-solid fa-calendar-days home-stat-icon"></i>
-          <span class="home-stat-num" style="color: var(--accent-gold)">6 yrs</span>
-          <span class="home-stat-label">Jan 2019 – Apr 2025</span>
-        </div>
-      </div>
-
-      <!-- Research Questions -->
-      <div class="card card--open">
-        <div class="card-header">
-          <div class="card-dot blue"></div>
-          <div class="card-title">Research Questions</div>
-        </div>
-        <div class="research-pair">
-          <div>
-            <div class="research-item-head">
-              <span class="item-num red">RQ1</span>
-              <strong>Crash &amp; Recovery</strong>
-            </div>
-            <p>Which PSE sector experienced the steepest decline during the COVID-19 crash (Q1–Q2 2020),
-              and which sector demonstrated the fastest recovery to pre-pandemic index levels?</p>
-          </div>
-          <div>
-            <div class="research-item-head">
-              <span class="item-num green">RQ2</span>
-              <strong>Trajectory Differences</strong>
-            </div>
-            <p>Do the six PSE sector indices show statistically significant differences in their
-              post-pandemic recovery trajectories from 2020 to 2025?</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Hypotheses -->
-      <div class="card card--open">
-        <div class="card-header">
-          <div class="card-dot green"></div>
-          <div class="card-title">Research Hypotheses</div>
-        </div>
-        <div class="research-pair">
-          <div>
-            <div class="research-item-head">
-              <span class="item-num red">H1</span>
-              <strong>Sector-Specific Crash &amp; Recovery</strong>
-            </div>
-            <p>The Services and Property sectors experienced the steepest decline during Q1–Q2 2020 due to
-              their high exposure to physical mobility and consumer activity, while the Industrial and
-              Holding Firms sectors demonstrated the fastest recovery to pre-pandemic index levels.</p>
-            <div class="hyp-notation">
-              <div class="hyp-row">
-                <span class="hyp-label">H₀</span>
-                <span class="hyp-text">There are no sector-specific differences in crash magnitude or post-pandemic recovery speed across the six PSE sector indices.</span>
+          <div class="research-pair">
+            <div>
+              <div class="research-item-head">
+                <span class="item-num red">RQ1</span>
+                <strong>Crash &amp; Recovery</strong>
               </div>
-              <div class="hyp-row">
-                <span class="hyp-label">Hₐ</span>
-                <span class="hyp-text">Services and Property experienced the steepest declines; Industrial and Holding Firms recovered to pre-pandemic index levels fastest.</span>
+              <p>
+                Which PSE sector experienced the steepest decline during the
+                COVID-19 crash (Q1–Q2 2020), and which sector demonstrated the
+                fastest recovery to pre-pandemic index levels?
+              </p>
+            </div>
+            <div>
+              <div class="research-item-head">
+                <span class="item-num green">RQ2</span>
+                <strong>Trajectory Differences</strong>
+              </div>
+              <p>
+                Do the six PSE sector indices show statistically significant
+                differences in their post-pandemic recovery trajectories from
+                2020 to 2025?
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hypotheses -->
+        <div class="card card--open">
+          <div class="card-header">
+            <div class="card-dot blue"></div>
+            <div class="card-title">Research Hypotheses</div>
+          </div>
+          <div class="research-pair">
+            <div>
+              <div class="research-item-head">
+                <span class="item-num red">H1</span>
+                <strong>Sector-Specific Crash &amp; Recovery</strong>
+              </div>
+              <p>
+                The Services and Property sectors experienced the steepest
+                decline during Q1–Q2 2020 due to their high exposure to physical
+                mobility and consumer activity, while the Industrial and Holding
+                Firms sectors demonstrated the fastest recovery to pre-pandemic
+                index levels.
+              </p>
+              <div class="hyp-notation">
+                <div class="hyp-row">
+                  <span class="hyp-label">H₀</span>
+                  <span class="hyp-text"
+                    >There are no sector-specific differences in crash magnitude
+                    or post-pandemic recovery speed across the six PSE sector
+                    indices.</span
+                  >
+                </div>
+                <div class="hyp-row">
+                  <span class="hyp-label">Hₐ</span>
+                  <span class="hyp-text"
+                    >Services and Property experienced the steepest declines;
+                    Industrial and Holding Firms recovered to pre-pandemic index
+                    levels fastest.</span
+                  >
+                </div>
               </div>
             </div>
-          </div>
-          <div>
-            <div class="research-item-head">
-              <span class="item-num green">H2</span>
-              <strong>Significant Trajectory Differences</strong>
-            </div>
-            <p>There is a statistically significant difference in post-COVID recovery trajectories across
-              the six PSE sector indices from 2020 to 2025 (α = 0.05).</p>
-            <div class="hyp-notation">
-              <div class="hyp-row">
-                <span class="hyp-label">H₀</span>
-                <span class="hyp-text">The six PSE sector indices do not differ significantly in their post-pandemic recovery trajectory distributions (2020–2025).</span>
+            <div>
+              <div class="research-item-head">
+                <span class="item-num green">H2</span>
+                <strong>Significant Trajectory Differences</strong>
               </div>
-              <div class="hyp-row">
-                <span class="hyp-label">Hₐ</span>
-                <span class="hyp-text">There is a statistically significant difference in post-COVID recovery trajectories across the six PSE sector indices at α = 0.05.</span>
+              <p>
+                There is a statistically significant difference in post-COVID
+                recovery trajectories across the six PSE sector indices from
+                2020 to 2025 (α = 0.05).
+              </p>
+              <div class="hyp-notation">
+                <div class="hyp-row">
+                  <span class="hyp-label">H₀</span>
+                  <span class="hyp-text"
+                    >The six PSE sector indices do not differ significantly in
+                    their post-pandemic recovery trajectory distributions
+                    (2020–2025).</span
+                  >
+                </div>
+                <div class="hyp-row">
+                  <span class="hyp-label">Hₐ</span>
+                  <span class="hyp-text"
+                    >There is a statistically significant difference in
+                    post-COVID recovery trajectories across the six PSE sector
+                    indices at α = 0.05.</span
+                  >
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Objectives -->
-      <div class="card card--open">
-        <div class="card-header">
-          <div class="card-dot blue"></div>
-          <div class="card-title">Objectives</div>
-        </div>
-        <div class="research-pair">
-          <div>
-            <div class="research-item-head">
-              <span class="item-num">O1</span>
+        <!-- Objectives -->
+        <div class="card card--open">
+          <div class="card-header">
+            <div class="card-dot blue"></div>
+            <div class="card-title">Objectives</div>
+          </div>
+          <div class="research-pair">
+            <div>
+              <div class="research-item-head">
+                <span class="item-num">O1</span>
+              </div>
+              <p>
+                To compare the magnitude and speed of sector-level index decline
+                and recovery across the COVID-19 crash period (2019–2025) using
+                daily PSE sector index closing price data.
+              </p>
             </div>
-            <p>To compare the magnitude and speed of sector-level index decline and recovery across the
-              COVID-19 crash period (2019–2025) using daily PSE sector index closing price data.</p>
-          </div>
-          <div>
-            <div class="research-item-head">
-              <span class="item-num">O2</span>
+            <div>
+              <div class="research-item-head">
+                <span class="item-num">O2</span>
+              </div>
+              <p>
+                To determine whether statistically significant differences exist
+                in the post-COVID recovery trajectories of the six PSE sector
+                indices using non-parametric hypothesis testing (Kruskal-Wallis
+                test).
+              </p>
             </div>
-            <p>To determine whether statistically significant differences exist in the post-COVID recovery
-              trajectories of the six PSE sector indices using non-parametric hypothesis testing
-              (Kruskal-Wallis test).</p>
+          </div>
+        </div>
+
+        <!-- Methodology -->
+        <div class="card card--open">
+          <div class="card-header">
+            <div class="card-dot blue"></div>
+            <div class="card-title">Methodology</div>
+          </div>
+          <p>
+            This project applies an
+            <strong>Exploratory Data Analysis (EDA)</strong> approach to the
+            daily closing prices of all six PSE sector indices from January 2019
+            to April 2025. The analysis is structured around two sequential
+            phases, each corresponding to one of the project's research
+            questions.
+          </p>
+          <div class="callout-pair">
+            <a href="eda.html" class="callout red">
+              <div class="callout-label">
+                Phase 1 · RQ1 — Descriptive &amp; Visual Analysis
+              </div>
+              <p>
+                The first phase involves computing the percentage drawdown from
+                each sector's pre-crash peak to its trough during Q1 to Q2 of
+                2020, as well as measuring the time elapsed for each sector to
+                return to its pre-pandemic closing level. The results are
+                visualized through a multi-line time series chart and a
+                comparative bar chart of drawdown magnitude and recovery
+                duration across sectors.
+              </p>
+            </a>
+            <a href="eda.html" class="callout green">
+              <div class="callout-label">
+                Phase 2 · RQ2 — Statistical Hypothesis Testing
+              </div>
+              <p>
+                The second phase applies the
+                <strong>Kruskal-Wallis test</strong>, a non-parametric
+                alternative to one-way ANOVA, to test whether the distributions
+                of normalized index returns across the six sectors differ
+                significantly during the recovery period from 2020 to 2025. This
+                test is selected because financial return data is typically
+                non-normal in distribution. If the test yields a statistically
+                significant result at the 0.05 significance level, post-hoc
+                pairwise comparisons using Dunn's test will identify which
+                specific sector pairs exhibit the greatest divergence in
+                recovery trajectories.
+              </p>
+            </a>
+          </div>
+        </div>
+
+        <!-- Data Preview -->
+        <div class="card card--open">
+          <div class="card-header">
+            <div class="card-dot blue"></div>
+            <div class="card-title">Dataset at a Glance</div>
+          </div>
+          <p style="margin-bottom: 14px">
+            The analysis draws from <strong>daily closing prices</strong> of all
+            six PSE sector indices spanning January 2019 to April 2025 —
+            <strong>10,728 trading-day observations</strong> in a single
+            long-format dataset. A preview of the raw data is shown below.
+          </p>
+          <div class="research-data-preview">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Ticker</th>
+                  <th>Sector</th>
+                  <th>Closing Price</th>
+                </tr>
+              </thead>
+              <tbody id="researchSampleTbody"></tbody>
+            </table>
+          </div>
+          <div style="margin-top: 16px">
+            <a href="data.html" class="link-btn">View full dataset →</a>
+          </div>
+        </div>
+
+        <!-- References -->
+        <div class="card card--open">
+          <div class="card-header">
+            <div class="card-dot blue"></div>
+            <div class="card-title">References</div>
+          </div>
+          <div class="references">
+            <div class="ref-item" id="ref-1">
+              <span class="ref-num">[1]</span>
+              <span class="ref-text">
+                Philippine Stock Exchange (PSE). (2025).
+                <em>PSE Sector Indices: Historical Data.</em> Retrieved from
+                <a href="https://www.pse.com.ph/index-history/" target="_blank"
+                  >pse.com.ph/index-history</a
+                >
+              </span>
+            </div>
+            <div class="ref-item" id="ref-2">
+              <span class="ref-num">[2]</span>
+              <span class="ref-text">
+                United Nations. (2015).
+                <em
+                  >Sustainable Development Goal 8: Promote sustained, inclusive
+                  and sustainable economic growth, full and productive
+                  employment and decent work for all.</em
+                >
+                <a href="https://sdgs.un.org/goals/goal8" target="_blank"
+                  >sdgs.un.org/goals/goal8</a
+                >
+              </span>
+            </div>
+            <div class="ref-item" id="ref-3">
+              <span class="ref-num">[3]</span>
+              <span class="ref-text">
+                Investing.com. (2025).
+                <em
+                  >Philippines Stock Exchange Sector Indices — Historical
+                  Data.</em
+                >
+                <a
+                  href="https://ph.investing.com/indices/philippines-indices"
+                  target="_blank"
+                  >ph.investing.com/indices/philippines-indices</a
+                >
+              </span>
+            </div>
           </div>
         </div>
       </div>
+      <!-- /content -->
+    </div>
+    <!-- /main -->
 
-      <!-- Methodology -->
-      <div class="card card--open">
-        <div class="card-header">
-          <div class="card-dot gold"></div>
-          <div class="card-title">Methodology</div>
-        </div>
-        <p>
-          This project applies an <strong>Exploratory Data Analysis (EDA)</strong> approach to the daily
-          closing prices of all six PSE sector indices from January 2019 to April 2025. The analysis is
-          structured around two sequential phases, each corresponding to one of the project's research
-          questions.
-        </p>
-        <div class="callout-pair">
-          <a href="eda.html" class="callout red">
-            <div class="callout-label">Phase 1 · RQ1 — Descriptive &amp; Visual Analysis</div>
-            <p>
-              The first phase involves computing the percentage drawdown from each sector's pre-crash peak
-              to its trough during Q1 to Q2 of 2020, as well as measuring the time elapsed for each sector
-              to return to its pre-pandemic closing level. The results are visualized through a multi-line
-              time series chart and a comparative bar chart of drawdown magnitude and recovery duration
-              across sectors.
-            </p>
-          </a>
-          <a href="eda.html" class="callout green">
-            <div class="callout-label">Phase 2 · RQ2 — Statistical Hypothesis Testing</div>
-            <p>
-              The second phase applies the <strong>Kruskal-Wallis test</strong>, a non-parametric alternative
-              to one-way ANOVA, to test whether the distributions of normalized index returns across the six
-              sectors differ significantly during the recovery period from 2020 to 2025. This test is selected
-              because financial return data is typically non-normal in distribution. If the test yields a
-              statistically significant result at the 0.05 significance level, post-hoc pairwise comparisons
-              using Dunn's test will identify which specific sector pairs exhibit the greatest divergence in
-              recovery trajectories.
-            </p>
-          </a>
-        </div>
-      </div>
-
-      <!-- Data Preview -->
-      <div class="card card--open">
-        <div class="card-header">
-          <div class="card-dot green"></div>
-          <div class="card-title">Dataset at a Glance</div>
-        </div>
-        <p style="margin-bottom:14px;">
-          The analysis draws from <strong>daily closing prices</strong> of all six PSE sector indices
-          spanning January 2019 to April 2025 — <strong>10,728 trading-day observations</strong> in a
-          single long-format dataset. A preview of the raw data is shown below.
-        </p>
-        <div class="research-data-preview">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Ticker</th>
-                <th>Sector</th>
-                <th>Closing Price</th>
-              </tr>
-            </thead>
-            <tbody id="researchSampleTbody"></tbody>
-          </table>
-        </div>
-        <div style="margin-top:16px;">
-          <a href="data.html" class="link-btn">View full dataset →</a>
-        </div>
-      </div>
-
-      <!-- References -->
-      <div class="card card--open">
-        <div class="card-header">
-          <div class="card-dot gold"></div>
-          <div class="card-title">References</div>
-        </div>
-        <div class="references">
-          <div class="ref-item" id="ref-1">
-            <span class="ref-num">[1]</span>
-            <span class="ref-text">
-              Philippine Stock Exchange (PSE). (2025). <em>PSE Sector Indices: Historical Data.</em>
-              Retrieved from <a href="https://www.pse.com.ph/index-history/" target="_blank">pse.com.ph/index-history</a>
-            </span>
-          </div>
-          <div class="ref-item" id="ref-2">
-            <span class="ref-num">[2]</span>
-            <span class="ref-text">
-              United Nations. (2015). <em>Sustainable Development Goal 8: Promote sustained, inclusive and
-              sustainable economic growth, full and productive employment and decent work for all.</em>
-              <a href="https://sdgs.un.org/goals/goal8" target="_blank">sdgs.un.org/goals/goal8</a>
-            </span>
-          </div>
-          <div class="ref-item" id="ref-3">
-            <span class="ref-num">[3]</span>
-            <span class="ref-text">
-              Investing.com. (2025). <em>Philippines Stock Exchange Sector Indices — Historical Data.</em>
-              <a href="https://ph.investing.com/indices/philippines-indices" target="_blank">ph.investing.com/indices/philippines-indices</a>
-            </span>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /content -->
-  </div><!-- /main -->
-
-  <script src="js/main.js"></script>
-  <script src="js/charts.js"></script>
-</body>
+    <script src="js/main.js"></script>
+    <script src="js/charts.js"></script>
+  </body>
 </html>

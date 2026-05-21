@@ -115,6 +115,7 @@
       <span class="crumb">PilipiNuts 2026</span>
       <span class="crumb-sep">›</span>
       <span class="crumb-active">Exploratory Data Analysis</span>
+      <span class="sdg-badge" style="margin-left: auto;">SDG 8 · Decent Work</span>
     </div>
 
     <div class="content">
@@ -122,15 +123,15 @@
       <!-- Nutshell Plot -->
       <div class="card">
         <div class="card-header">
-          <div class="card-dot gold"></div>
+          <div class="card-dot blue"></div>
           <div class="card-title">Nutshell Plot: Key Findings at a Glance</div>
         </div>
         <p>
           The chart below summarizes the central findings of this project in a single visualization.
           All six PSE sector indices are normalized to January 2019 = 100, allowing direct cross-sector
           comparison of crash depth and recovery trajectory.
-          <span class="hl-sector green">Mining &amp; Oil (PSMO)</span> and
-          <span class="hl-sector red">Property (PSPR)</span>
+          <span class="hl-psmo">Mining &amp; Oil (PSMO)</span> and
+          <span class="hl-pspr">Property (PSPR)</span>
           are highlighted as the two most divergent outcomes: the former surged to more than 2.5 times
           its pre-pandemic level by April 2025, while the latter remained below its January 2019 baseline
           throughout the entire observation window.
@@ -140,13 +141,13 @@
           alt="Nutshell plot: Not All Sectors Recovered — The PSE's Fractured Post-COVID Recovery (2019–2025)"
           style="width:100%; border-radius:6px; display:block; margin-top:12px;"
         />
-        <p class="mt-4" style="font-size:12px; color:var(--text-muted);">
-          <span class="hl-sector green">Mining &amp; Oil (PSMO)</span> surged approximately 150% above
-          its pre-pandemic baseline while <span class="hl-sector red">Property (PSPR)</span>
+        <p class="mt-4" style="color:var(--text-muted);">
+          <span class="hl-psmo">Mining &amp; Oil (PSMO)</span> surged approximately 150% above
+          its pre-pandemic baseline while <span class="hl-pspr">Property (PSPR)</span>
           has yet to return to its January 2019 level as of April 2025. The Kruskal-Wallis test
           (H = 5289.54, p &lt; 0.001) confirms that these divergent trajectories are statistically
           significant across all six sectors. The Philippine economy's post-pandemic growth was
-          neither uniform nor inclusive, directly implicating SDG 8: Decent Work and Economic Growth.
+          neither uniform nor inclusive, directly implicating <span class="hl-sdg">SDG 8: Decent Work and Economic Growth</span>.
         </p>
       </div>
 
@@ -172,7 +173,7 @@
 
         <div class="mt-4">
           <p>
-            <strong><span class="hl-sector green">Mining &amp; Oil (PSMO)</span> experienced the steepest decline</strong>,
+            <strong><span class="hl-psmo">Mining &amp; Oil (PSMO)</span> experienced the steepest decline</strong>,
             falling 61.8% from its pre-pandemic peak to its COVID-19 trough in March to April 2020. This result
             contradicts H1, which predicted that Services and Property would decline most sharply.
             Instead, Services (PSSE) registered the smallest drawdown among all six sectors at 40.2%,
@@ -181,10 +182,10 @@
             period with minimal disruption to revenues.
           </p>
           <p>
-            In terms of post-pandemic performance, <span class="hl-sector green">Mining &amp; Oil (PSMO)</span>
+            In terms of post-pandemic performance, <span class="hl-psmo">Mining &amp; Oil (PSMO)</span>
             demonstrated the strongest recovery by a considerable margin, with its normalized index exceeding 200
             by 2024 and reaching approximately 250 by April 2025, which is more than 2.5 times its January 2019
-            baseline. <span class="hl-sector red">Property (PSPR)</span>, by contrast, remained the clear
+            baseline. <span class="hl-pspr">Property (PSPR)</span>, by contrast, remained the clear
             laggard: its normalized index was still below 100 as of April 2025, indicating that the sector had
             not returned to its pre-pandemic baseline level within the six-year observation window.
           </p>
@@ -213,9 +214,9 @@
         <div class="mt-4">
           <p>
             The box plots reveal stark differences in recovery distributions across sectors.
-            <span class="hl-sector red">Property (PSPR)</span> records the lowest median normalized value
+            <span class="hl-pspr">Property (PSPR)</span> records the lowest median normalized value
             during the recovery period, confirming that it spent the bulk of 2020 to 2025 below its
-            pre-pandemic baseline. Services and <span class="hl-sector green">Mining &amp; Oil (PSMO)</span>
+            pre-pandemic baseline. Services and <span class="hl-psmo">Mining &amp; Oil (PSMO)</span>
             show the widest distributions and highest medians, reflecting sustained upward momentum
             throughout the recovery window. Holding Firms and Industrial exhibit similar, compressed
             distributions near the 80 to 90 range, suggesting a partial but incomplete recovery.
@@ -232,7 +233,7 @@
       <!-- Hypothesis Testing -->
       <div class="card">
         <div class="card-header">
-          <div class="card-dot green"></div>
+          <div class="card-dot blue"></div>
           <div class="card-title">Hypothesis Testing Results</div>
         </div>
 
@@ -248,11 +249,11 @@
           <p>
             H1 predicted that Services and Property would experience the steepest declines due to their
             dependence on physical consumer activity, while Industrial and Holding Firms would recover
-            fastest. The data does not support this. <span class="hl-sector green">Mining &amp; Oil (PSMO)</span>
+            fastest. The data does not support this. <span class="hl-psmo">Mining &amp; Oil (PSMO)</span>
             crashed hardest at &minus;61.8%, while Services had the smallest drawdown at &minus;40.2%.
-            In terms of post-pandemic performance, <span class="hl-sector green">PSMO</span> reached the
+            In terms of post-pandemic performance, <span class="hl-psmo">PSMO</span> reached the
             highest normalized level by April 2025, not Industrial or Holding Firms.
-            <span class="hl-sector red">Property (PSPR)</span>, as predicted, remained a laggard, but for
+            <span class="hl-pspr">Property (PSPR)</span>, as predicted, remained a laggard, but for
             a different reason than hypothesized: it was not the worst in the crash but proved to be the
             slowest to recover.
           </p>

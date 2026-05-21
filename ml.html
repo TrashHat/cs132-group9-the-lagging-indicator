@@ -130,6 +130,7 @@
       <span class="crumb">PilipiNuts 2026</span>
       <span class="crumb-sep">›</span>
       <span class="crumb-active">ML Forecast</span>
+      <span class="sdg-badge" style="margin-left: auto;">SDG 8 · Decent Work</span>
     </div>
 
     <div class="content">
@@ -137,7 +138,7 @@
       <!-- Model Selection -->
       <div class="card">
         <div class="card-header">
-          <div class="card-dot gold"></div>
+          <div class="card-dot blue"></div>
           <div class="card-title">Model Selection &amp; Methodology</div>
         </div>
 
@@ -252,7 +253,7 @@
         <div class="callout green mb-4">
           <div class="callout-label">Key Finding</div>
           <p>
-            Holding Firms (PSHO) is the <strong>only sector with a positive R²</strong> (+0.0936),
+            <span class="hl-psho">Holding Firms (PSHO)</span> is the <strong>only sector with a positive R²</strong> (+0.0936),
             reflecting its compressed, plateau-like trajectory. Five of six sectors returned negative R²,
             driven by externally-triggered surges in 2024–2025 that no univariate trend model could anticipate.
           </p>
@@ -322,8 +323,8 @@
         </table>
 
         <p class="mt-4">
-          The strongly negative R² values for Industrial (&minus;2.9083), Services (&minus;2.3220), and
-          Mining &amp; Oil (&minus;1.2716) reflect the commodity price surge and demand recovery shocks in
+          The strongly negative R² values for <span class="hl-psin">Industrial</span> (&minus;2.9083), <span class="hl-psse">Services</span> (&minus;2.3220), and
+          <span class="hl-psmo">Mining &amp; Oil</span> (&minus;1.2716) reflect the commodity price surge and demand recovery shocks in
           2024 to 2025 — externally driven movements that a model trained on 2019 to 2023 trend data
           cannot anticipate. This is a constraint of all univariate trend-based forecasting methods, not
           a failure of model specification.
@@ -333,20 +334,20 @@
       <!-- Forecast Findings -->
       <div class="card">
         <div class="card-header">
-          <div class="card-dot green"></div>
+          <div class="card-dot blue"></div>
           <div class="card-title">Forecast Findings &amp; SDG 8 Implications</div>
         </div>
 
         <div class="callout red">
           <div class="callout-label">Finding F1 — Property</div>
           <p>
-            <strong>Property (PSPR) is not projected to reach its pre-pandemic baseline by December 2026</strong>
+            <strong><span class="hl-pspr">Property (PSPR)</span> is not projected to reach its pre-pandemic baseline by December 2026</strong>
             under the model's central estimate, extending the EDA finding that PSPR had not recovered as
             of April 2025.
           </p>
         </div>
         <p>
-          This carries direct implications for SDG 8. The property sector employs significant portions of
+          This carries direct implications for <span class="hl-sdg">SDG 8</span>. The property sector employs significant portions of
           the construction and property management workforce in the Philippines. A sustained multi-year
           deficit below the 2019 baseline signals that capital allocation toward these industries remains
           structurally depressed, with employment and investment conditions likely to continue lagging the
@@ -356,8 +357,8 @@
         <div class="callout gold mt-6">
           <div class="callout-label">Finding F2 — Persistent Divergence</div>
           <p>
-            <strong>Sector divergence is projected to persist through 2026.</strong> Mining &amp; Oil remains
-            elevated; Services trends moderately upward; Banks, Holding Firms, and Industrial cluster in the
+            <strong>Sector divergence is projected to persist through 2026.</strong> <span class="hl-psmo">Mining &amp; Oil</span> remains
+            elevated; <span class="hl-psse">Services</span> trends moderately upward; <span class="hl-psfi">Banks</span>, <span class="hl-psho">Holding Firms</span>, and <span class="hl-psin">Industrial</span> cluster in the
             80–120 range.
           </p>
         </div>
@@ -372,7 +373,7 @@
       <!-- Limitations -->
       <div class="card">
         <div class="card-header">
-          <div class="card-dot gold"></div>
+          <div class="card-dot blue"></div>
           <div class="card-title">Limitations &amp; Future Extensions</div>
         </div>
 

@@ -975,6 +975,14 @@ body {
 .hl-sector.green { color: var(--accent-green); }
 .hl-sector.red   { color: var(--accent-red); }
 
+.hl-psfi { color: #2962ff !important; font-weight: 700; }
+.hl-psho { color: #26a69a !important; font-weight: 700; }
+.hl-psin { color: #f0b90b !important; font-weight: 700; }
+.hl-pspr { color: #ef5350 !important; font-weight: 700; }
+.hl-psse { color: #ab47bc !important; font-weight: 700; }
+.hl-psmo { color: #ff9800 !important; font-weight: 700; }
+.hl-sdg  { color: var(--accent-gold) !important; font-weight: 700; }
+
 /* ── Citation & references ───────────────────────────────── */
 
 .cite {
