@@ -62,45 +62,59 @@
         <span class="crumb">PilipiNuts 2026</span>
         <span class="crumb-sep">›</span>
         <span class="crumb-active">Data Repository</span>
-        <span class="sdg-badge" style="margin-left: auto;">SDG 8 · Decent Work</span>
+        <span class="sdg-badge" style="margin-left: auto"
+          >SDG 8 · Decent Work</span
+        >
       </div>
 
       <div class="content">
-        <!-- Dataset Overview -->
-        <div class="card card--open">
-          <div class="card-header">
-
-            <div class="card-title">Dataset Overview</div>
+        <!-- Dataset Overview: two-column hero -->
+        <div class="research-hero-grid">
+          <div class="research-hero-text" style="justify-content:space-between;">
+            <h2 class="hero-title">Dataset Overview</h2>
+            <p>
+              The dataset consists of the
+              <strong>daily closing prices</strong> of all six official
+              Philippine Stock Exchange (PSE) sector indices, covering
+              <strong>January 2, 2019 to April 2025</strong>. This date range
+              captures the full COVID-19 crash cycle, including the pre-pandemic
+              baseline, the March 2020 market collapse, and the multi-year
+              recovery period extending to the present.
+            </p>
+            <p>
+              Each sector index is a market-capitalization-weighted composite of
+              all PSE-listed companies classified under that sector. The six
+              indices collectively represent the entire Philippine equity market
+              and are the official measures published by the Philippine Stock
+              Exchange.
+            </p>
+            <p>
+              The six sector indices are the official classification system used
+              by the Philippine Stock Exchange. Together, they cover every
+              company listed on the PSE, making them the most comprehensive
+              available lens for studying how different segments of the
+              Philippine economy respond to macroeconomic shocks and are
+              directly relevant to SDG 8's goal of sustained, inclusive economic
+              growth.
+            </p>
+            <div class="row mt-4">
+              <span class="badge green"
+                ><span data-stat="totalRows"></span> total rows</span
+              >
+              <span class="badge blue">Daily frequency</span>
+              <span class="badge gold">2019 – 2025 coverage</span>
+              <span class="badge green">Includes 2025 data</span>
+            </div>
           </div>
-          <p>
-            The dataset consists of the <strong>daily closing prices</strong> of
-            all six official Philippine Stock Exchange (PSE) sector indices,
-            covering <strong>January 2, 2019 to April 2025</strong>. This date
-            range captures the full COVID-19 crash cycle, including the
-            pre-pandemic baseline, the March 2020 market collapse, and the
-            multi-year recovery period extending to the present.
-          </p>
-          <p>
-            Each sector index is a market-capitalization-weighted composite of
-            all PSE-listed companies classified under that sector. The six
-            indices collectively represent the entire Philippine equity market
-            and are the official measures published by the Philippine Stock
-            Exchange.
-          </p>
-          <div class="row mt-4">
-            <span class="badge green"
-              ><span data-stat="totalRows"></span> total rows</span
-            >
-            <span class="badge blue">Daily frequency</span>
-            <span class="badge gold">2019 – 2025 coverage</span>
-            <span class="badge green">Includes 2025 data</span>
+          <div style="display:flex; flex-direction:column; align-items:center; padding:12px 0;">
+            <img src="assets/PSEICrash.png" alt="Philippine Stock Exchange trading floor" style="width:75%; display:block; border:1px solid rgba(37,99,235,0.25);" />
+            <p style="width:75%; font-size:13px; color:var(--text-muted); margin-top:8px; line-height:1.5; font-style:italic; text-align:center;">Photo: <a href="https://www.abs-cbn.com/news/business/2025/1/24/psei-sees-third-weekly-loss-2251" target="_blank" style="font-size:13px; color:var(--accent-blue); font-weight:600; text-decoration:none;">ABS-CBN News</a> · PSE trading floor, January 2025</p>
           </div>
         </div>
 
         <!-- Sector Indices Table -->
         <div class="card card--open">
           <div class="card-header">
-
             <div class="card-title">The Six PSE Sector Indices</div>
           </div>
           <table class="data-table">
@@ -173,7 +187,6 @@
         <!-- Data Collection -->
         <div class="card card--open">
           <div class="card-header">
-
             <div class="card-title">Data Collection Process</div>
           </div>
           <p>
@@ -220,13 +233,12 @@
         <div class="two-col">
           <div class="card card--flex card--open">
             <div class="card-header">
-  
               <div class="card-title">Dataset Specifications</div>
             </div>
             <table class="data-table data-table--fill">
               <colgroup>
-                <col style="width: 38%">
-                <col>
+                <col style="width: 38%" />
+                <col />
               </colgroup>
               <tbody>
                 <tr>
@@ -265,7 +277,6 @@
 
           <div class="card card--open">
             <div class="card-header">
-  
               <div class="card-title">Preprocessing Notes</div>
             </div>
             <p>
@@ -303,9 +314,10 @@
               <li>
                 <span class="item-num">5</span>
                 <div class="item-body">
-                  Computed a normalized index (January 2019 = 100) for each sector by dividing
-                  each daily closing price by the sector's first observed value on January 2, 2019
-                  and multiplying by 100, enabling direct cross-sector comparison of crash depth
+                  Computed a normalized index (January 2019 = 100) for each
+                  sector by dividing each daily closing price by the sector's
+                  first observed value on January 2, 2019 and multiplying by
+                  100, enabling direct cross-sector comparison of crash depth
                   and recovery trajectory regardless of absolute index scale
                 </div>
               </li>
@@ -316,10 +328,11 @@
         <!-- Sector Summary Stats Table -->
         <div class="card card--open">
           <div class="card-header">
-
-            <div class="card-title">Sector Summary Statistics · Jan 2019 – Apr 2025</div>
+            <div class="card-title">
+              Sector Summary Statistics · Jan 2019 – Apr 2025
+            </div>
           </div>
-          <div style="overflow-x:auto;">
+          <div style="overflow-x: auto">
             <table class="data-table">
               <thead>
                 <tr>
@@ -340,11 +353,13 @@
         <!-- Sample Rows Table -->
         <div class="card card--open">
           <div class="card-header">
-
             <div class="card-title">Data Preview · Sample Rows</div>
           </div>
-          <p style="margin-bottom:14px;">Five representative rows per sector from the combined long-format dataset.</p>
-          <div style="overflow-x:auto;">
+          <p style="margin-bottom: 14px">
+            Five representative rows per sector from the combined long-format
+            dataset.
+          </p>
+          <div style="overflow-x: auto">
             <table class="data-table">
               <thead>
                 <tr>
@@ -362,7 +377,6 @@
         <!-- Google Sheet -->
         <div class="card card--open">
           <div class="card-header">
-
             <div class="card-title">Raw Dataset: Google Sheets</div>
           </div>
           <p>
