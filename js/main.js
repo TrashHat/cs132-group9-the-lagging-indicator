@@ -26,6 +26,46 @@ document.addEventListener('DOMContentLoaded', () => {
     if (link.getAttribute('href') === page) link.classList.add('active');
   });
 
+  // Mobile sidebar toggle
+  const sidebar = document.querySelector('.sidebar');
+  if (sidebar) {
+    const overlay = document.createElement('div');
+    overlay.className = 'sidebar-overlay';
+    document.body.appendChild(overlay);
+
+    const toggle = document.createElement('button');
+    toggle.className = 'nav-toggle';
+    toggle.setAttribute('aria-label', 'Toggle navigation');
+    toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    const sidebarLogo = sidebar.querySelector('.sidebar-logo');
+    if (sidebarLogo) {
+      sidebarLogo.insertBefore(toggle, sidebarLogo.firstChild);
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'nav-close';
+      closeBtn.setAttribute('aria-label', 'Close navigation');
+      closeBtn.innerHTML = '<i class="fa-solid fa-xmark"></i> Close';
+      sidebarLogo.appendChild(closeBtn);
+      closeBtn.addEventListener('click', closeSidebar);
+    }
+
+    function openSidebar() {
+      sidebar.classList.add('sidebar--expanded');
+      overlay.classList.add('active');
+    }
+    function closeSidebar() {
+      sidebar.classList.remove('sidebar--expanded');
+      overlay.classList.remove('active');
+    }
+
+    toggle.addEventListener('click', () => {
+      sidebar.classList.contains('sidebar--expanded') ? closeSidebar() : openSidebar();
+    });
+    overlay.addEventListener('click', closeSidebar);
+    sidebar.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', closeSidebar);
+    });
+  }
+
   // Inject stats
   document.querySelectorAll('[data-stat]').forEach(el => {
     const key = el.getAttribute('data-stat');
